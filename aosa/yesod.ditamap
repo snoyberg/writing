@@ -6,8 +6,8 @@
         <topicref href="datatypes.dita"/>
         <topicref href="streaming.dita"/>
         <topicref href="builder.dita"/>
-        <topicref href="middleware.dita"/>
         <topicref href="handlers.dita"/>
+        <topicref href="middleware.dita"/>
         <topicref href="wai-test.dita"/>
     </topicref>
 </map>
