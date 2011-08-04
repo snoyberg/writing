@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+    <title>Yesod Web Framework</title>
+    <topicref href="wai.dita">
+        <topicref href="datatypes.dita"/>
+        <topicref href="streaming.dita"/>
+        <topicref href="builder.dita"/>
+        <topicref href="middleware.dita"/>
+        <topicref href="handlers.dita"/>
+        <topicref href="wai-test.dita"/>
+    </topicref>
+</map>

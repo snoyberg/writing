@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="conceptId">
+ <title>Streaming</title>
+ <conbody>
+  <p>A ByteString represents a single memory buffer. If we were to naively use a plain ByteString
+   for holding the entire request or response bodies, our applications could never scale to large
+   requests or responses. Instead, we use a technique called enumerators, very similar in concept to
+   generators in Python. Our application becomes a consumer of a stream of ByteStrings representing
+   the incoming request body, and a producer of a separate stream for the response.</p>
+ </conbody>
+</concept>
