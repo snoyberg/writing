@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="conceptId">
+ <title>Handlers</title>
+ <conbody>
+  <p>Now that we have an application, we need some way to run it. In WAI parlance, this is a
+    <term>handler</term>. WAI has some basic, standard handlers, such as a standalone server (Warp,
+   discussed below), FastCGI, SCGI and CGI. This spectrum allows WAI applications to be run on
+   anything from dedicated servers down to shared hosting. But in addition to these, WAI has some
+   more interesting backends:<dl>
+    <dlentry>
+     <dt>Webkit</dt>
+     <dd>This backend embeds a Warp server and calls out to QtWebkit. By launching a server,
+      followed by launching a new standalone browser window, we have faux desktop applications.</dd>
+    </dlentry>
+    <dlentry>
+     <dt>Launch</dt>
+     <dd>This is a slight variant on Webkit. Having to deploy the Qt and Webkit libraries can be a
+      bit burdensome, so instead we just launch the user's default browser.</dd>
+    </dlentry>
+    <dlentry>
+     <dt>Test</dt>
+     <dd>And even testing counts as a handler. After all, testing is simply the act of running an
+      application and inspecting the responses.</dd>
+    </dlentry>
+   </dl></p>
+  <p>Most developers will likely use Warp. It is lightweight enough to be used for testing. It
+   requires no config files, no folder hiearchy and no long-running, administrator owned process.
+   It's a simple library that gets compiled into your application or run via the Haskell
+   interpreter. On the flip side, Warp is an incredibly fast server, with protection from all kinds
+   of attack vectors, such as slow loris and infinite headers. Warp can be the only web server you
+   need, though it is also quite happy to sit behind a reverse HTTP proxy.</p>
+  <fig>
+   <title>Warp PONG Benchmark</title>
+   <image href="http://www.yesodweb.com/static/benchmarks/2011-03-17/extra-large.png"
+    id="image_xrh_agm_gd"/>
+  </fig>
+  <p>Most of the reasons for Warp's speed have already been spelled out in the overall description
+   of WAI: enumerators, builders and packed datatypes. The last piece in the puzzle is from GHC's
+   multithreaded runtime. GHC, Haskell's flagship compiler, has light-weight green threads. Unlike
+   system threads, it is possible to spin up thousands of these without serious performance hits.
+   Therefore, in Warp, each connection is handled by its own green thread.</p>
+  <p>The next trick is asynchronous I/O. Any web server hoping to scale to tens of thousands of
+   requests per second will need some type of asynchronous communication. In most languages, this
+   involves complicated programming involving callbacks. GHC lets us cheat: we program as if we're
+   using a synchronous API, and GHC automatically switches between different green threads waiting
+   for activity.</p>
+  <p>Under the surface, GHC uses whatever system is provided by the host operating system, such as
+   kqueue, epoll and select.</p>
+ </conbody>
+</concept>
