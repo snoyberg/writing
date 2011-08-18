@@ -46,6 +46,7 @@
    using a synchronous API, and GHC automatically switches between different green threads waiting
    for activity.</p>
   <p>Under the surface, GHC uses whatever system is provided by the host operating system, such as
-   kqueue, epoll and select.</p>
+   kqueue, epoll and select. This gives us all the performance of an event-based IO system, without
+   worrying about cross-platform issues or writing in a callback-oriented way.</p>
  </conbody>
 </concept>
