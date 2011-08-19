@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="conceptId">
+ <title>Using Shakespeare</title>
+ <conbody>
+  <p>Shakespeare languages have three modes of running available: embedded within your Haskell
+   source, stored in a separate file and compiled into the executable, or loaded from an external
+   file at runtime. The last, called debug mode, is perfect for rapid development. The first two
+   both allow for incredibly fast production code with minimal file dependencies. Also, it's very
+   easy to switch between external file and debug mode. The default scaffolded Yesod site handles
+   this with a single preprocessor variable.</p>
+ </conbody>
+</concept>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="conceptId">
+ <title>Templates</title>
+ <conbody>
+  <p>In the typical Model-View-Controller (MVC) paradigm, one of the goals is to separate logic from
+   the view. Part of this separation is achieved through the use of a template language. However,
+   there are many different ways to approach this issue. At one end of the spectrum, for example,
+   PHP/ASP/JSP will allow you to embed any arbitrary code within your template. At the other end,
+   you have systems like StringTemplate and QuickSilver, which are passed some arguments and have no
+   other way of interacting with the rest of the program.</p>
+  <p>Each system has its pros and cons. Having a more powerful template system can be a huge
+   convenience. Need to show the contents of a database table? No problem, pull it in with the
+   template. However, such an approach can quickly lead to convoluted code, interspersing database
+   cursor updates with HTML generation. Most anyone who has worked on a poorly written ASP project
+   has seen this.</p>
+  <p>While weak template systems make for simple code, they also tend towards a lot of redundant
+   work. You'll often need to not only keep your original values in datatypes, but also create
+   dictionaries of values to pass to the template. Maintaining such code is not easy, and usually
+   there is no way for a compiler to help you out.</p>
+  <p>Yesod's family of template languages, the Shakespearean languages, strive for a middle ground.
+   By leveraging Haskell's standard referential transparency, we can be assured that our templates
+   produce no side effects. However, they still have full access to all the variables and functions
+   available in your Haskell code. Also, since they are fully checked for both well-formedness,
+   variable resolution and type safety at compile time, typos are much less likely to have you
+   searching through your code trying to pin down a bug.</p>
+  <note>Why the name Shakespeare? The HTML language, Hamlet, was the first language written, and
+   originally based its syntax on Haml. Since it was at the time a "reduced" Haml, Hamlet seemed
+   appropriate. As we added CSS and Javascript options, we decided to keep the naming theme with
+   Cassius and Julius. At this point, Hamlet looks nothing like Haml, but the name stuck
+   anyway.</note>
+ </conbody>
+</concept>

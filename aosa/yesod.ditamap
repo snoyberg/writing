@@ -10,6 +10,11 @@
         <topicref href="middleware.dita"/>
         <topicref href="wai-test.dita"/>
     </topicref>
-    <topicref href="templates.dita"></topicref>
+    <topicref href="templates.dita">
+        <topicref href="types.dita"/>
+        <topicref href="syntax.dita"/>
+        <topicref href="the-others.dita"/>
+        <topicref href="using-shakespeare.dita"/>
+    </topicref>
     <topicref href="persistent.dita"></topicref>
 </map>
