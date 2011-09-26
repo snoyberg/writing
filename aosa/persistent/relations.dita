@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
+<concept id="Relations">
+ <title>Relations</title>
+ <conbody>
+  <p>Persistent is non-relational in nature, meaning it has no requirement for backends to support
+   relations. However, in many use cases, we may want to use relations. And in those cases, you will
+   have full access to them.</p>
+  <p>Let's say we want to now store a list of skills with each user. If we were writing a
+   MongoDB-specific app, we could go ahead and just store that list as a new field in the original
+   Person entity. But that approach won't work in SQL. In SQL, we call this kind of relationship a
+   one-to-many relationship.</p>
+  <p>The idea is to store a reference to the "one" entity (person) with each "many" entity (skill).
+   Then if we want to find all the skills a person has, we simply find all skills that reference
+   that person. For this reference, every entity has an ID. And as you might expect by now, these
+   IDs are completely type-safe. The datatype for a Person ID is <codeph>PersonId</codeph>. So to
+   add our new skill, we would just add the following to our entity definition:</p>
+  <codeblock>Skill
+    person PersonId
+    name Text
+    description Text
+    UniqueSkill person name</codeblock>
+  <p>This ID datatype concept comes up throughout Persistent and Yesod. You can dispatch based on an
+   ID. In such a case, Yesod will automatically marshal the textual representation of the ID to the
+   internal one, catching any parse errors along the way. These IDs are used for lookup and deletion
+   with the <codeph>get</codeph> and <codeph>delete</codeph> functions, and are returned by the
+   insertion and query functions <codeph>insert</codeph> and <codeph>selectList</codeph>.</p>
+ </conbody>
+</concept>

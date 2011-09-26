@@ -16,5 +16,18 @@
         <topicref href="the-others.dita"/>
         <topicref href="using-shakespeare.dita"/>
     </topicref>
-    <topicref href="persistent.dita"></topicref>
+    <topicref href="persistent.dita">
+        <topicref href="persistent/terms.dita"/>
+        <topicref href="persistent/type-safety.dita"/>
+        <topicref href="persistent/syntax.dita"/>
+        <topicref href="persistent/migrations.dita"/>
+        <topicref href="persistent/relations.dita"/>
+    </topicref>
+    <topicref href="yesod.dita">
+        <topicref href="yesod/routes.dita"/>
+        <topicref href="yesod/handlers.dita"/>
+        <topicref href="yesod/subsites.dita"/>
+        <topicref href="yesod/widgets.dita"/>
+        <topicref href="yesod/authentication.dita"/>
+    </topicref>
 </map>

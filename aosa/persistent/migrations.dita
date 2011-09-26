@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
+<concept id="migrations">
+ <title>Migrations</title>
+ <conbody>
+  <p>It's all well and good that you can define these entities in a nice, pretty Haskell syntax, but
+   you still have to write your schema files, right? Actually, no. For MongoDB, there's no
+   requirement for a schema file. And for SQL, Persistent provides automatic migrations. This
+   mechanism is incredibly convenient, and let's you easily play around with different approaches
+   during development, while feeling secure that you'll be able to deploy to production.</p>
+  <p>This feature is purposely limited to prevent any kind of data loss. It will not remove any
+   columns automatically; instead, it will give you an error message, telling you the unsafe
+   operations that are necessary in order to continue. You will then have the option to either
+   manually run the SQL it provides you, or to change your data model to avoid the dangerous
+   behavior.</p>
+ </conbody>
+</concept>
