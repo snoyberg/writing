@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
+<concept id="subsites">
+ <title>Subsites</title>
+ <conbody>
+  <p>Many websites share common pieces of functionality. Perhaps the two most common examples of
+   this are serving static files and authentication. In Yesod, you can easily drop in this code
+   using a <term>subsite</term>. All you need to do is add an extra line to your routes. For
+   example, to add the static subsite, you would write:</p>
+  <codeblock>/static StaticR Static getStatic</codeblock>
+  <p>The first argument tells where in the site the subsite starts. The static subsite is usually
+   used at /static, but you could use whatever you want. StaticR is the name of the route; this is
+   also entirely up to you, but convention is to use StaticR. Static is the name of the static
+   subsite; this is one you don't have control over. And getStatic if a function that returns the
+   settings for the static site, such as where the static files are located.</p>
+  <p>Like all of your handlers, the subsite handlers also have access to the
+    <codeph>defaultLayout</codeph> function. This means that a well designed subsite will
+   automatically use your site skin without any extra intervention on your part.</p>
+ </conbody>
+</concept>

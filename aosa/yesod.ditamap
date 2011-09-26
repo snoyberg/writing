@@ -2,6 +2,7 @@
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
     <title>Yesod Web Framework</title>
+    <topicref href="introduction.dita"/>
     <topicref href="wai.dita">
         <topicref href="datatypes.dita"/>
         <topicref href="streaming.dita"/>
@@ -24,10 +25,11 @@
         <topicref href="persistent/relations.dita"/>
     </topicref>
     <topicref href="yesod.dita">
-        <topicref href="yesod/routes.dita"/>
+        <topicref href="yesod/routes.dita">
+            <topicref href="yesod/typesafe-urls.dita"/>
+        </topicref>
         <topicref href="yesod/handlers.dita"/>
-        <topicref href="yesod/subsites.dita"/>
         <topicref href="yesod/widgets.dita"/>
-        <topicref href="yesod/authentication.dita"/>
+        <topicref href="yesod/subsites.dita"/>
     </topicref>
 </map>

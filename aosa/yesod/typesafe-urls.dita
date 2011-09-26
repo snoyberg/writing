@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
+<concept id="type-safe-urls">
+ <title>Type-safe URLs</title>
+ <conbody>
+  <p>This approach to routing gives birth to one of Yesod's most powerful features: type-safe URLs.
+   Instead of just splicing together pieces of text to refer to a route, every route in your
+   application can be represented by a Haskell value. This immediately eliminates a huge number of
+   404 not found errors: it's simply not possible to produce an invalid URL.</p>
+  <note>It's still possible to produce a 404 URL, such as by referring to a blog post that doesn't
+   exist. However, all URLs will be formed correctly.</note>
+  <p>So how does this magic work? Each site has a route datatype, and each resource pattern gets its
+   own constructor. In our previous example, we would get something that looks like:</p>
+  <codeblock outputclass="haskell">data MySiteRoute = HomepageR
+                 | AddEntryR
+                 | EntryR EntryId</codeblock>
+  <p>If you want to link to the homepage, you use <codeph>HomepageR</codeph>. To link to a specific
+   entry, you would use the <codeph>EntryR</codeph> constructor with an <codeph>EntryId</codeph>
+   parameter. For example, to create a new entry and redirect to it, you could write:</p>
+  <codeblock outputclass="haskell">entryId &lt;- insert (Entry "My Entry" "Some content")
+redirect RedirectTemporary (EntryR entryId)</codeblock>
+  <p>And Hamlet, Lucius and Julius all include built-in support for these type-safe URLs. Inside a
+   Hamlet template, you can easily create a link to the add entry page:</p>
+  <codeblock outputclass="hamlet">&lt;a href=@{AddEntryR}>Create a new entry.</codeblock>
+  <p>The best part? Just like Persistent entities, the compiler will keep you honest. If you change
+   any of your routes (e.g., you want to include the year and month in your entry routes), Yesod
+   will force you to update every single reference throughout your codebase.</p>
+ </conbody>
+</concept>
