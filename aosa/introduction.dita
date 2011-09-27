@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
 <concept id="introduction">
- <title>Introduction</title>
- <conbody>
-  <p>Yesod is a web framework written in the Haskell programming language. Development began about
+ <title id="x-1">Introduction</title>
+ <conbody id="x-2">
+  <p id="x-3">Yesod is a web framework written in the Haskell programming language. Development began about
    two years ago, and has been going strong ever since. Yesod cut its teeth on real life projects,
    with all of its initial features borne out of an actual, real life need. After being developed
    mostly single-handedly for about a year, the community efforts kicked in, and Yesod has since
    blossomed into a thriving open-source project.</p>
-  <p>I think this approach has produced a very solid project. During the embrionic phase, when Yesod
+  <p id="x-4">I think this approach has produced a very solid project. During the embrionic phase, when Yesod
    was incredibly ephemeral and ill-defined, it would have been counter-productive to try and get a
    team to work on it. By the time it stabilized enough to be useful to others, it was the right
    time to find out the downsides to some of the decisions that had been made. Since then, we have
    made major changes to the user-facing API to make it more useful, and are quickly solidifying a
    1.0 release.</p>
-  <p>The question you may ask is: why another web framework? I'll start with a redirect to a
+  <p id="x-5">The question you may ask is: why another web framework? I'll start with a redirect to a
    different question: why use Haskell? It seems that most of the world is happy with one of two
    styles of language:</p>
   <ul id="ul_abba76f6-38db-46aa-8bd9-4699289ea8d4">
-   <li>Statically typed languages, like Java, C# and C++. These languages provide speed and type
+   <li id="x-6">Statically typed languages, like Java, C# and C++. These languages provide speed and type
     safety, but are more cumbersome to program with.</li>
-   <li>Dynamically typed languages, like Ruby and Python. These languages greatly increase
+   <li id="x-7">Dynamically typed languages, like Ruby and Python. These languages greatly increase
     productivity (at least in the short run), but run slowly and have very little support from the
     compiler to ensure correctness. (The solution to this last point is unit testing. We'll get to
     that later.)</li>
   </ul>
-  <p>This is a false dichotomy. There's no reason why statically typed languages need to be so
+  <p id="x-8">This is a false dichotomy. There's no reason why statically typed languages need to be so
    clumsy. Haskell is able to capture a huge amount of the expressivity of Ruby and Python, while
    still keeping a strongly typed language. In fact, Haskell's type system catches many more bugs
    that Java and its ilk. Null pointer exceptions are completely eliminated; immutable data
    structures simplify reasoning about your code and make parallel programming a breeze.</p>
-  <p>So why Haskell? It provides an efficient language that provides very many compile-time checks
+  <p id="x-9">So why Haskell? It provides an efficient language that provides very many compile-time checks
    of program correctness in a developer-friendly language.</p>
-  <p>The goal of Yesod is to extend Haskell's strengths into web development. We strive to make your
+  <p id="x-10">The goal of Yesod is to extend Haskell's strengths into web development. We strive to make your
    code as concise as possible. As much as possible, every line of your code is checked for
    correctness at compile time. Instead of requiring large libraries of unit tests to test basic
    properties, the compiler does it all for you. And under the surface, we use as many advanced

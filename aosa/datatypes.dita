@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="conceptId">
- <title>Datatypes</title>
- <conbody>
-  <p>One of the biggest advantages of Haskell - and one of the things we make the most use of in
+ <title id="x-1">Datatypes</title>
+ <conbody id="x-2">
+  <p id="x-3">One of the biggest advantages of Haskell - and one of the things we make the most use of in
    Yesod - is strong static typing. Before we begin to write the code for how to solve something, we
    need to think about what the data will look like. WAI is a perfect example of this paradigm. The
    core concept we want to express is that of an application. An application's most basic expression
    is a function that takes a request and returns a response. In Haskell lingo:
-   <codeblock>type Application = Request -> Response</codeblock></p>
-  <p>But that just begs the question: what do Request and Response look like? A Request has a number
+   <codeblock id="x-4">type Application = Request -&gt; Response</codeblock></p>
+  <p id="x-5">But that just begs the question: what do Request and Response look like? A Request has a number
    of pieces of information, but the most basic are the requested path, query string, request
    headers, and request body. And a Response has just three components: a status, response headers
    and response body.</p>
-  <p>How do we represent something like a query string? Haskell keeps a strict separation between
+  <p id="x-6">How do we represent something like a query string? Haskell keeps a strict separation between
    binary and textual data. The former is represented by ByteString, the latter by Text. Both are
    highly optimized datatypes that provide a high level, safe API. In the case of query string we
    store the raw bytes transferred over the wire as a ByteString and the parsed, decoded values as

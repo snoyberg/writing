@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
 <concept id="yesod">
- <title>Yesod</title>
- <conbody>
-  <p>And now we can finally discuss Yesod itself. If we're looking through the typical
+ <title id="x-1">Yesod</title>
+ <conbody id="x-2">
+  <p id="x-3">And now we can finally discuss Yesod itself. If we're looking through the typical
    Model-View-Controller (MVC) paradigm, Persistent is the model and Sheakespeare is the view. This
    would leave Yesod as the controller.</p>
-  <p>The most basic feature of Yesod is routing. This features a declarative syntax and type-safe
+  <p id="x-4">The most basic feature of Yesod is routing. This features a declarative syntax and type-safe
    dispatch. Layered on top of this, Yesod provides many other features: streaming content
    generation, widgets, i18n, static files, forms and authentication. But the core feature added by
    Yesod is really routing.</p>
-  <p>At the highest level, Yesod provides a scaffolding tool that automatically generates a
+  <p id="x-5">At the highest level, Yesod provides a scaffolding tool that automatically generates a
    "best-practices" site shell that integrates all of these features (plus all the features of
    Shakespeare and Persistent) together. This lets you go quickly from a nice idea to a
    production-quality site.</p>
-  <p>And besides all of the developer-friendly features, Yesod is providing a huge number of
+  <p id="x-6">And besides all of the developer-friendly features, Yesod is providing a huge number of
    optimizations for you under the surface. Cache-busting files, minification, and asynchronous
    Javascript loading are all added on top of the already extensive list of performance enhancement
    previously described in this chapter.</p>

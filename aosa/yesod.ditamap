@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
-<map>
-    <title>Yesod Web Framework</title>
-    <topicref href="introduction.dita"/>
-    <topicref href="wai.dita">
-        <topicref href="datatypes.dita"/>
-        <topicref href="streaming.dita"/>
-        <topicref href="builder.dita"/>
-        <topicref href="handlers.dita"/>
-        <topicref href="middleware.dita"/>
-        <topicref href="wai-test.dita"/>
+<map id="x-1">
+    <title id="x-2">Yesod Web Framework</title>
+    <topicref id="x-3" href="introduction.dita"/>
+    <topicref id="x-4" href="wai.dita">
+        <topicref id="x-5" href="datatypes.dita"/>
+        <topicref id="x-6" href="streaming.dita"/>
+        <topicref id="x-7" href="builder.dita"/>
+        <topicref id="x-8" href="handlers.dita"/>
+        <topicref id="x-9" href="middleware.dita"/>
+        <topicref id="x-10" href="wai-test.dita"/>
     </topicref>
-    <topicref href="templates.dita">
-        <topicref href="types.dita"/>
-        <topicref href="syntax.dita"/>
-        <topicref href="the-others.dita"/>
-        <topicref href="using-shakespeare.dita"/>
+    <topicref id="x-11" href="templates.dita">
+        <topicref id="x-12" href="types.dita"/>
+        <topicref id="x-13" href="syntax.dita"/>
+        <topicref id="x-14" href="the-others.dita"/>
+        <topicref id="x-15" href="using-shakespeare.dita"/>
     </topicref>
-    <topicref href="persistent.dita">
-        <topicref href="persistent/terms.dita"/>
-        <topicref href="persistent/type-safety.dita"/>
-        <topicref href="persistent/syntax.dita"/>
-        <topicref href="persistent/migrations.dita"/>
-        <topicref href="persistent/relations.dita"/>
+    <topicref id="x-16" href="persistent.dita">
+        <topicref id="x-17" href="persistent/terms.dita"/>
+        <topicref id="x-18" href="persistent/type-safety.dita"/>
+        <topicref id="x-19" href="persistent/syntax.dita"/>
+        <topicref id="x-20" href="persistent/migrations.dita"/>
+        <topicref id="x-21" href="persistent/relations.dita"/>
     </topicref>
-    <topicref href="yesod.dita">
-        <topicref href="yesod/routes.dita">
-            <topicref href="yesod/typesafe-urls.dita"/>
+    <topicref id="x-22" href="yesod.dita">
+        <topicref id="x-23" href="yesod/routes.dita">
+            <topicref id="x-24" href="yesod/typesafe-urls.dita"/>
         </topicref>
-        <topicref href="yesod/handlers.dita"/>
-        <topicref href="yesod/widgets.dita"/>
-        <topicref href="yesod/subsites.dita"/>
+        <topicref id="x-25" href="yesod/handlers.dita"/>
+        <topicref id="x-26" href="yesod/widgets.dita"/>
+        <topicref id="x-27" href="yesod/subsites.dita"/>
     </topicref>
 </map>

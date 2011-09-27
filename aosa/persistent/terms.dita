@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
 <concept id="terminology">
- <title>Terminology</title>
- <conbody>
-  <p>The most primitive datatype in Persistent is the <codeph>PersistValue</codeph>. This represents
+ <title id="x-1">Terminology</title>
+ <conbody id="x-2">
+  <p id="x-3">The most primitive datatype in Persistent is the <codeph id="x-4">PersistValue</codeph>. This represents
    any raw data that can appear within the database, such as a number, a date, or a string. Of
    course, sometimes you'll have some more user-friendly datatypes you want to store, like HTML. For
-   that, we have the <codeph>PersistField</codeph> class. Internally, a
-    <codeph>PersistField</codeph> expresses itself to the database in terms of a
-    <codeph>PersistValue</codeph>.</p>
-  <p>All of this is very nice, but we'll really want to combine different fields together into a
-   larger picture. For this, we have a <codeph>PersistEntity</codeph>, which is basically a
-   collection of <codeph>PersistField</codeph>s. And finally, we have a
-    <codeph>PersistBackend</codeph> that describes how to create, read, update and delete these
+   that, we have the <codeph id="x-5">PersistField</codeph> class. Internally, a
+    <codeph id="x-6">PersistField</codeph> expresses itself to the database in terms of a
+    <codeph id="x-7">PersistValue</codeph>.</p>
+  <p id="x-8">All of this is very nice, but we'll really want to combine different fields together into a
+   larger picture. For this, we have a <codeph id="x-9">PersistEntity</codeph>, which is basically a
+   collection of <codeph id="x-10">PersistField</codeph>s. And finally, we have a
+    <codeph id="x-11">PersistBackend</codeph> that describes how to create, read, update and delete these
    entities.</p>
-  <p>As a practical example, consider storing a person in a database. We want to store the person's
+  <p id="x-12">As a practical example, consider storing a person in a database. We want to store the person's
    name, birthday, and a profile image (a PNG file). So we'll create a new entity
-    <codeph>Person</codeph> with three fields: a <codeph>Text</codeph>, a <codeph>Day</codeph> and a
-    <codeph>PNG</codeph>. Each of those get stored in the database using a different
-    <codeph>PersistValue</codeph> constructor: <codeph>PersistText</codeph>,
-    <codeph>PersistDay</codeph> and <codeph>PersistByteString</codeph>, respectively.</p>
-  <p>There's nothing surprising about those first two mappings, but the last one is interesting.
+    <codeph id="x-13">Person</codeph> with three fields: a <codeph id="x-14">Text</codeph>, a <codeph id="x-15">Day</codeph> and a
+    <codeph id="x-16">PNG</codeph>. Each of those get stored in the database using a different
+    <codeph id="x-17">PersistValue</codeph> constructor: <codeph id="x-18">PersistText</codeph>,
+    <codeph id="x-19">PersistDay</codeph> and <codeph id="x-20">PersistByteString</codeph>, respectively.</p>
+  <p id="x-21">There's nothing surprising about those first two mappings, but the last one is interesting.
    There's no specific constructor for storing PNG content in a database, so instead we use a more
    generic type (a ByteString, which is just a sequence of bytes). We could use the same mechanism
    to store other types of arbitrary data.</p>
-  <note>The commonly held best practice for storing images is to keep the data on the filesystem and
+  <note id="x-22">The commonly held best practice for storing images is to keep the data on the filesystem and
    just keep a path to the image in the database. I'm not advocating against that approach here,
    just using database-stored images as an example.</note>
-  <p>How is all this represented in the database? Let's take SQL as an example. The
-    <codeph>Person</codeph> entity becomes a table with three columns: name, birthday and picture.
-   Each field gets stored as a different SQL type: <codeph>Text</codeph> becomes a
-    <codeph>VARCHAR</codeph>, <codeph>Day</codeph> becomes a <codeph>Date</codeph> and
-    <codeph>PNG</codeph> becomes a <codeph>BLOB</codeph> (or <codeph>BYTEA</codeph>).</p>
+  <p id="x-23">How is all this represented in the database? Let's take SQL as an example. The
+    <codeph id="x-24">Person</codeph> entity becomes a table with three columns: name, birthday and picture.
+   Each field gets stored as a different SQL type: <codeph id="x-25">Text</codeph> becomes a
+    <codeph id="x-26">VARCHAR</codeph>, <codeph id="x-27">Day</codeph> becomes a <codeph id="x-28">Date</codeph> and
+    <codeph id="x-29">PNG</codeph> becomes a <codeph id="x-30">BLOB</codeph> (or <codeph id="x-31">BYTEA</codeph>).</p>
  </conbody>
 </concept>

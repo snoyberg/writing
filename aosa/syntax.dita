@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="conceptId">
- <title>Hamlet Syntax</title>
- <conbody>
-  <p>You've already gotten a taste of the Hamlet syntax, let's just go over some of the main
+ <title id="x-1">Hamlet Syntax</title>
+ <conbody id="x-2">
+  <p id="x-3">You've already gotten a taste of the Hamlet syntax, let's just go over some of the main
    points:</p>
   <ul id="ul_aou_hyy_id">
-   <li>Instead of using closing tags, indentation is used to denote nesting.</li>
-   <li>There are conveniences for the two most common attributes: id is specified with a hash, and
+   <li id="x-4">Instead of using closing tags, indentation is used to denote nesting.</li>
+   <li id="x-5">There are conveniences for the two most common attributes: id is specified with a hash, and
     classes via a period. This matches closely with CSS.</li>
-   <li>The interpolation syntax for variables and URLs is almost identical: #{variable} versus
+   <li id="x-6">The interpolation syntax for variables and URLs is almost identical: #{variable} versus
     @{url}.</li>
-   <li>There are special statements for conditionals and looping. They all use intuitive names (if,
+   <li id="x-7">There are special statements for conditionals and looping. They all use intuitive names (if,
     elseif, else, forall) and go on a line beginning with a dollar sign ($).</li>
   </ul>
-  <fig>
-   <title>Hamlet Synopsis</title>
-   <codeblock>&lt;html>
-    &lt;head>
-        &lt;title>#{pageTitle} - My Site
+  <fig id="x-8">
+   <title id="x-9">Hamlet Synopsis</title>
+   <codeblock id="x-10">&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;#{pageTitle} - My Site
         &lt;link rel="stylesheet" href=@{Stylesheet}
-    &lt;body>
-        &lt;h1 .page-title>#{pageTitle}
-        &lt;p>Here is a list of your friends:
+    &lt;body&gt;
+        &lt;h1 .page-title&gt;#{pageTitle}
+        &lt;p&gt;Here is a list of your friends:
         $if null friends
-            &lt;p>Sorry, I lied, you don't have any friends.
+            &lt;p&gt;Sorry, I lied, you don't have any friends.
         $else
-            &lt;ul>
+            &lt;ul&gt;
                 $forall friend &lt;- friends
-                    &lt;li>#{friendName friend} (#{show $ friendAge friend} years old)</codeblock>
+                    &lt;li&gt;#{friendName friend} (#{show $ friendAge friend} years old)</codeblock>
   </fig>
  </conbody>
 </concept>

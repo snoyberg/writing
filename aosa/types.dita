@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="conceptId">
- <title>Types</title>
- <conbody>
-  <p>If you haven't noticed yet, one of the overarching themes in Yesod is proper use of types to
+ <title id="x-1">Types</title>
+ <conbody id="x-2">
+  <p id="x-3">If you haven't noticed yet, one of the overarching themes in Yesod is proper use of types to
    make our life easier. In our templates, we have two main examples:<ol id="ol_pnw_rvy_id">
-    <li>All content embedded into a Hamlet template must have a type of <codeph>Html</codeph>. As
+    <li id="x-4">All content embedded into a Hamlet template must have a type of <codeph id="x-5">Html</codeph>. As
      we'll see later, this forces us to properly escape dangerous HTML when necessary, while
      avoiding accidental double-escaping as well.</li>
-    <li>Instead of concatenating URLs directly in our template, we have datatypes- known as
+    <li id="x-6">Instead of concatenating URLs directly in our template, we have datatypes- known as
      type-safe URLs- which represent the routes in our application.</li>
    </ol></p>
-  <p>Let's see some real-life examples of this stuff. Suppose that a user submits his/her name to
+  <p id="x-7">Let's see some real-life examples of this stuff. Suppose that a user submits his/her name to
    your application via a form. This data would be represented with the Text datatype. Now we would
    like to display this variable, called name, in a page. The type system prevents it from being
    simply stuck into a Hamlet template, since it's not of type Html. Instead we must convert it
    somehow. For this, there are two conversion functions:<ol id="ol_sfn_nwy_id">
-    <li>toHtml will automatically escape any entities. So if a user submits the string
-      <codeph>&lt;script src="http://example.com/evil.js">&lt;/script></codeph>, the less than signs
-     will automatically be converted to <codeph>&amp;lt;</codeph>.</li>
-    <li>preEscapedText, on the other hand, will leave the content precisely as it is now.</li>
+    <li id="x-8">toHtml will automatically escape any entities. So if a user submits the string
+      <codeph id="x-9">&lt;script src="http://example.com/evil.js"&gt;&lt;/script&gt;</codeph>, the less than signs
+     will automatically be converted to <codeph id="x-10">&amp;lt;</codeph>.</li>
+    <li id="x-11">preEscapedText, on the other hand, will leave the content precisely as it is now.</li>
    </ol>So in the case of untrusted input from a possibly nefarious user, toHtml would be our
    recommended approach. On the other hand, let's say we have some static HTML stored on our server
    that we'd like to insert into some pages verbatim. In that case, we could load it into a Text
    value and then apply preEscapedText, thereby avoiding any double-escaping.</p>
-  <p>By default, Hamlet will use the toHtml function on any content you try to interpolate.
+  <p id="x-12">By default, Hamlet will use the toHtml function on any content you try to interpolate.
    Therefore, you only need to explicitly perform a conversion if you want to avoid escaping. This
    follows the dictum of erring on the side of caution.</p>
-  <fig>
-   <title>Proper HTML Handling</title>
-   <codeblock>name &lt;- runInputPost $ ireq textField "name"
+  <fig id="x-13">
+   <title id="x-14">Proper HTML Handling</title>
+   <codeblock id="x-15">name &lt;- runInputPost $ ireq textField "name"
 snippet &lt;- readFile "mysnippet.html"
 return [hamlet|
-    &lt;p>Welcome #{name}, you are on my site!
-    &lt;div .copyright>#{preEscapedText snippet}
+    &lt;p&gt;Welcome #{name}, you are on my site!
+    &lt;div .copyright&gt;#{preEscapedText snippet}
 |]</codeblock>
   </fig>
-  <p>The first step in type-safe URLs is creating a datatype that represents all the routes in your
+  <p id="x-16">The first step in type-safe URLs is creating a datatype that represents all the routes in your
    site. Let's say you have a site for displaying fibonnacci numbers. The site will have a separate
    page for each number in the sequence, plus the homepage. This could be modeled with the Haskell
-   datatype<codeblock>data FibRoute = Home | Fib Int</codeblock>We could then create a page like
-   so:<codeblock>&lt;p>You are currently viewing number #{show index} in the sequence. Its value is #{show $ fib index}.
-&lt;p>
-    &lt;a href=@{Fib ((+) index 1)}>Next number
-&lt;p>
-    &lt;a href=@{Home}>Homepage</codeblock>Then
+   datatype<codeblock id="x-17">data FibRoute = Home | Fib Int</codeblock>We could then create a page like
+   so:<codeblock id="x-18">&lt;p&gt;You are currently viewing number #{show index} in the sequence. Its value is #{show $ fib index}.
+&lt;p&gt;
+    &lt;a href=@{Fib ((+) index 1)}&gt;Next number
+&lt;p&gt;
+    &lt;a href=@{Home}&gt;Homepage</codeblock>Then
    all we need is some function to convert a type-safe URL into a string representation. In our
    case, that could look something like
-   this:<codeblock>render :: FibRoute -> Text
+   this:<codeblock id="x-19">render :: FibRoute -&gt; Text
 render Home = "/home"
 render (Fib i) = "/fib/" ++ show i</codeblock></p>
-  <p>Fortunately, all of the boilerplate of defining and rendering type-safe URL datatypes is
+  <p id="x-20">Fortunately, all of the boilerplate of defining and rendering type-safe URL datatypes is
    handled for the developer automatically by Yesod. We will cover that in more depth later.</p>
  </conbody>
 </concept>

@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
 <concept id="widgets">
- <title>Widgets</title>
- <conbody>
-  <p>Let's say you want to include a navbar on a few different pages of your site. This navbar will
+ <title id="x-1">Widgets</title>
+ <conbody id="x-2">
+  <p id="x-3">Let's say you want to include a navbar on a few different pages of your site. This navbar will
    load up the five most recent blog posts (stored in your database), generate some HTML, and then
    need some CSS and Javascript to style and enhance.</p>
-  <p>In most web frameworks, this would be a pain. You could add the CSS to the sitewide CSS file,
+  <p id="x-4">In most web frameworks, this would be a pain. You could add the CSS to the sitewide CSS file,
    but that's adding extra declarations you don't always need. Likewise with the Javascript, though
    a bit worse: having that extra Javascript might cause problems on a page it wasn't intended to
    live on. You'll also be breaking modularity by having to generate the database results from
    multiple handler functions.</p>
-  <p>In Yesod, we have a very simple solution: widgets. A widget is a piece of code that ties
-   together HTML, CSS and Javascript, allows you to add content to both the &lt;head> and &lt;body>,
+  <p id="x-5">In Yesod, we have a very simple solution: widgets. A widget is a piece of code that ties
+   together HTML, CSS and Javascript, allows you to add content to both the &lt;head&gt; and &lt;body&gt;,
    and can run any arbitrary code that belongs in a handler. For example, to implement our
    navbar:</p>
-  <codeblock outputclass="haskell">-- Get last five blog posts. The "lift" says to run this code like we're in the handler.
+  <codeblock id="x-6" outputclass="haskell">-- Get last five blog posts. The "lift" says to run this code like we're in the handler.
 entries &lt;- lift $ runDB $ selectList [] [LimitTo 5, Desc EntryPosted]
 toWidget [hamlet|
-&lt;ul .navbar>
+&lt;ul .navbar&gt;
     $forall entry &lt;- entries
-        &lt;li>#{entryTitle entry}
+        &lt;li&gt;#{entryTitle entry}
 |]
 toWidget [lucius| .navbar { color: red } |]
 toWidget [julius|alert("Some special Javascript to play with my navbar");|]</codeblock>
-  <p>But there's even more power at work here. When you produce a page in Yesod, the standard
+  <p id="x-7">But there's even more power at work here. When you produce a page in Yesod, the standard
    approach is to combine a bunch of widgets together into a single widget containing all your page
    content, and then apply defaultLayout. This function is defined per site, and applies your
    standard site layout.</p>
-  <p>And where does all of that CSS and Javascript go? Well, that's up to you, but there are two
+  <p id="x-8">And where does all of that CSS and Javascript go? Well, that's up to you, but there are two
    out-of-the-box approaches:</p>
   <ol id="ul_d94f42ac-dd25-4a5f-a166-225af4b03c11">
-   <li>Concatenate them and place them into &lt;style> and &lt;script> tags, respectively, within
+   <li id="x-9">Concatenate them and place them into &lt;style&gt; and &lt;script&gt; tags, respectively, within
     your HTML.</li>
-   <li>Place them in external files and refer to them with &lt;link> and &lt;script> tags,
+   <li id="x-10">Place them in external files and refer to them with &lt;link&gt; and &lt;script&gt; tags,
     respectively.</li>
   </ol>
-  <p>In addition, your Javascript can be automatically minified. Option 2 is the prefered approach,
+  <p id="x-11">In addition, your Javascript can be automatically minified. Option 2 is the prefered approach,
    since it allows a few extra optimizations:</p>
   <ol id="ol_32f7c374-f394-4809-94f5-00480a982d5d">
-   <li>The files are created with names based on a hash of the contents. This means you can place
+   <li id="x-12">The files are created with names based on a hash of the contents. This means you can place
     cache values far in the future without worries of users receiving stale content.</li>
-   <li>Your Javascript can be asynchronously loaded.</li>
+   <li id="x-13">Your Javascript can be asynchronously loaded.</li>
   </ol>
-  <p>That second point requires a bit of elaboration. Widgets not only contain raw Javascript, they
+  <p id="x-14">That second point requires a bit of elaboration. Widgets not only contain raw Javascript, they
    also contain a list of Javascript dependencies. For example, many sites will refer to the jQuery
    library and then add some Javascript that uses it. Yesod is able to automatically turn all of
    that into an asynchronous load via yepnope.js.</p>
-  <p>In other words, widgets allow you to create modular, composable code that will result in
+  <p id="x-15">In other words, widgets allow you to create modular, composable code that will result in
    incredibly efficient serving of your static resources.</p>
  </conbody>
 </concept>

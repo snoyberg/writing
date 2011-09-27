@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
 <concept id="routes">
- <title>Routes</title>
- <conbody>
-  <p>Given that routing is really the main function of Yesod, let's start there. The routing syntax
-   is very simple: a <term>resource pattern</term>, a name, and request methods. For example, a
+ <title id="x-1">Routes</title>
+ <conbody id="x-2">
+  <p id="x-3">Given that routing is really the main function of Yesod, let's start there. The routing syntax
+   is very simple: a <term id="x-4">resource pattern</term>, a name, and request methods. For example, a
    simple blog site might look like:</p>
-  <codeblock>/ HomepageR GET
+  <codeblock id="x-5">/ HomepageR GET
 /add-entry AddEntryR GET POST
 /entry/#EntryId EntryR GET</codeblock>
-  <p>The first line defines the homepage. This says "I respond to the root path of the domain, I'm
-   called HomepageR, and I answer GET requests."<note>The trailing "R" on the resource names is
+  <p id="x-6">The first line defines the homepage. This says "I respond to the root path of the domain, I'm
+   called HomepageR, and I answer GET requests."<note id="x-7">The trailing "R" on the resource names is
     simply a convention, it doesn't hold any special meaning besides giving a cue to the developer
     that something is a route.</note></p>
-  <p>The second line defines the add entry page. This time, we answer both GET and POST requests.
+  <p id="x-8">The second line defines the add entry page. This time, we answer both GET and POST requests.
    You might be wondering why Yesod, as opposed to most frameworks, requires you to explicitly state
    your request methods. The reason is that Yesod tries to ahere to RESTful principles as much as
    possible, and a GET and POST request really have very different meanings. Not only do you state
    these two methods separately, but later you'll define their handler functions separately.</p>
-  <note>This is actually an optional feature in Yesod. If you want, you can leave off the list of
+  <note id="x-9">This is actually an optional feature in Yesod. If you want, you can leave off the list of
    methods and your handler function will deal with all methods.</note>
-  <p>The third line is a bit more interesting. After the second slash we have
-    <codeph>#EntryId</codeph>. This defines a parameter of type <codeph>EntryId</codeph>. In the
+  <p id="x-10">The third line is a bit more interesting. After the second slash we have
+    <codeph id="x-11">#EntryId</codeph>. This defines a parameter of type <codeph id="x-12">EntryId</codeph>. In the
    Persistent section, we already alluded to this feature: Yesod will now automatically marshal the
    path component into the relevant ID value. Assuming a SQL backend (we'll get to Mongo in a
-   second), if a user requests <codeph>/entry/5</codeph>, the handler function will get called with
-   an argument <codeph>EntryId 5</codeph>. But if the user requests
-    <codeph>/entry/some-blog-post</codeph>, Yesod will return a 404.</p>
-  <p>These is obviously possible in most other web frameworks as well. The approach taken by Django,
+   second), if a user requests <codeph id="x-13">/entry/5</codeph>, the handler function will get called with
+   an argument <codeph id="x-14">EntryId 5</codeph>. But if the user requests
+    <codeph id="x-15">/entry/some-blog-post</codeph>, Yesod will return a 404.</p>
+  <p id="x-16">These is obviously possible in most other web frameworks as well. The approach taken by Django,
    for instance, would use a regular expression for matching the routes, e.g.
-    <codeph>r"/entry/(\d+)"</codeph>. But I think the Yesod approach works better, because:</p>
+    <codeph id="x-17">r"/entry/(\d+)"</codeph>. But I think the Yesod approach works better, because:</p>
   <ul id="ul_b9e08670-a14a-4ad7-833b-20e1e7e38b2d">
-   <li>Typing "EntryId" is much more semantic/developer-friendly than some regular expression.</li>
-   <li>Regular expressions can't express everything (or at least, can't do so succinctly). We can
-    use <codeph>/calendar/#Day</codeph> in Yesod; do you want to type a regex to match dates in your
+   <li id="x-18">Typing "EntryId" is much more semantic/developer-friendly than some regular expression.</li>
+   <li id="x-19">Regular expressions can't express everything (or at least, can't do so succinctly). We can
+    use <codeph id="x-20">/calendar/#Day</codeph> in Yesod; do you want to type a regex to match dates in your
     routes?</li>
-   <li>Yesod also automatically marshals the data for us. In our calendar case, our handler function
-    would receive a <codeph>Day</codeph> value. In the Django equivalent, the function would receive
+   <li id="x-21">Yesod also automatically marshals the data for us. In our calendar case, our handler function
+    would receive a <codeph id="x-22">Day</codeph> value. In the Django equivalent, the function would receive
     a piece of text which it would then have to marshal itself. This is tedious, repetitive and
     inefficient.</li>
-   <li>So far we've assumed that a database ID is just a string of digits. But what if it's more
+   <li id="x-23">So far we've assumed that a database ID is just a string of digits. But what if it's more
     complicated? MongoDB uses GUIDs, for example. In Yesod, your #EntryId will still work, and the
     type system will instruct Yesod how to parse the route. In a regex system, you would have to go
     through all of your routes and change the (\d+) to whatever monstrosity of regex is needed to

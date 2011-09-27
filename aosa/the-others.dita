@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="conceptId">
- <title>The Other Languages</title>
- <conbody>
-  <p>In addition to Hamlet, there are three other languages. Julius is used for Javascript. However,
+ <title id="x-1">The Other Languages</title>
+ <conbody id="x-2">
+  <p id="x-3">In addition to Hamlet, there are three other languages. Julius is used for Javascript. However,
    it's a simple pass-through language, just allowing for interpolation. In other words, barring
    accidental use of the interpolation syntax, any piece of Javascript could be dropped into Julius
    and be valid. (In fact, for testing performance, I once took jQuery and ran it through Julius
    without a hitch.)</p>
-  <fig>
-   <title>Julius Synopsis</title>
-   <codeblock>$(function(){
+  <fig id="x-4">
+   <title id="x-5">Julius Synopsis</title>
+   <codeblock id="x-6">$(function(){
     $("section.#{sectionClass}").hide();
     $("#mybutton").click(function(){document.location = "@{SomeRouteR}";});
 });</codeblock>
   </fig>
-  <p>The other two languages are alternate CSS syntaxes. Those familiar with the difference between
+  <p id="x-7">The other two languages are alternate CSS syntaxes. Those familiar with the difference between
    Sass and Less will recognize this immediately: Cassius is whitespace delimited, while Lucius uses
    braces. Lucius is in fact a superset of CSS, meaning all valid CSS files are valid Lucius files.
    In addition to allowing text interpolation, there are some helper datatypes provided to model
    unit sizes and colors. Also, type-safe URLs work in these languages, making it convenient for
    specifying background images.</p>
-  <fig>
-   <title>Cassius Synopsis</title>
-   <codeblock>#myid
+  <fig id="x-8">
+   <title id="x-9">Cassius Synopsis</title>
+   <codeblock id="x-10">#myid
     color: #{red}
     font-size: #{bodyFontSize}
 foo bar baz
     background-image: url(@{MyBackgroundR})</codeblock>
   </fig>
-  <p>One extra convenience provided by Lucius (and taken from Less) is nested blocks. For example,
-   the code below would produce <codeph>section.blog h1 { color: blue; }</codeph> (or whatever
+  <p id="x-11">One extra convenience provided by Lucius (and taken from Less) is nested blocks. For example,
+   the code below would produce <codeph id="x-12">section.blog h1 { color: blue; }</codeph> (or whatever
    happens to be the heading color).</p>
-  <fig>
-   <title>Lucius Synopsis</title>
-   <codeblock>section.blog {
+  <fig id="x-13">
+   <title id="x-14">Lucius Synopsis</title>
+   <codeblock id="x-15">section.blog {
     padding: 1em;
     border: 1px solid #000;
     h1 {

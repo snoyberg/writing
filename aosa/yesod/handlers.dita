@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
 <concept id="handlers">
- <title>Handlers</title>
- <conbody>
-  <p>Once you define your routes, you need to tell Yesod how you want to respond to requests. This
-   is where <term>handler functions</term> come into play. The setup is simple, for each resource
+ <title id="x-1">Handlers</title>
+ <conbody id="x-2">
+  <p id="x-3">Once you define your routes, you need to tell Yesod how you want to respond to requests. This
+   is where <term id="x-4">handler functions</term> come into play. The setup is simple, for each resource
    (e.g., HomepageR) and request method, create a function named methodResourceR. For our previous
-   example, we would need four functions: <codeph>getHomepageR</codeph>,
-    <codeph>getAddEntryR</codeph>, <codeph>postAddEntryR</codeph>, and
-   <codeph>getEntryR</codeph>.</p>
-  <p>All of the parameters collected from the route are passed in as arguments to the handler
-   function. <codeph>getEntryR</codeph> will take a first arugment of type EntryId, while all the
+   example, we would need four functions: <codeph id="x-5">getHomepageR</codeph>,
+    <codeph id="x-6">getAddEntryR</codeph>, <codeph id="x-7">postAddEntryR</codeph>, and
+   <codeph id="x-8">getEntryR</codeph>.</p>
+  <p id="x-9">All of the parameters collected from the route are passed in as arguments to the handler
+   function. <codeph id="x-10">getEntryR</codeph> will take a first arugment of type EntryId, while all the
    other functions will take no arguments.</p>
-  <p>The handler functions live in a <codeph>Handler</codeph> monad, which provides a bunch of
+  <p id="x-11">The handler functions live in a <codeph id="x-12">Handler</codeph> monad, which provides a bunch of
    functionality, like redirecting, accessing sessions, and running database queries. For the last
-   one, a typical way to start of the <codeph>getEntryR</codeph> function would be:</p>
-  <codeblock>getEntryR entryId = do
+   one, a typical way to start of the <codeph id="x-13">getEntryR</codeph> function would be:</p>
+  <codeblock id="x-14">getEntryR entryId = do
     entry &lt;- runDB $ get404 entryId</codeblock>
-  <p>This will run a database action that will get the entry associated with the given ID from the
+  <p id="x-15">This will run a database action that will get the entry associated with the given ID from the
    database. If there is no such entry, it will return a 404 response.</p>
-  <p>Each handler function will return some value, which must be an instance of
-    <codeph>HasReps</codeph>. This is another RESTful feature at play: instead of just returning
+  <p id="x-16">Each handler function will return some value, which must be an instance of
+    <codeph id="x-17">HasReps</codeph>. This is another RESTful feature at play: instead of just returning
    some HTML or some JSON, you can return a value that will return either one, depending on the HTTP
    Accept request header. In other words, in Yesod, a resource is a specific piece of data, and it
-   can be returned in one of many <term>representations</term>.</p>
+   can be returned in one of many <term id="x-18">representations</term>.</p>
  </conbody>
 </concept>

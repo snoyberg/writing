@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="conceptId">
- <title>Web Application Interface</title>
- <conbody>
-  <p>A web application needs some way to communicate with a server. One possible approach is to bake
+ <title id="x-1">Web Application Interface</title>
+ <conbody id="x-2">
+  <p id="x-3">A web application needs some way to communicate with a server. One possible approach is to bake
    the server directly into the framework, but doing so necessarily limits your options for
    deployment and leads to poor interfaces. Many languages have created standard interfaces to
    address this issue: Python has WSGI and Ruby has Rack. In Haskell, we have WAI.</p>
-  <p>WAI is not intended to be a high level interface. It has two specific goals: generality and
+  <p id="x-4">WAI is not intended to be a high level interface. It has two specific goals: generality and
    performance.  By staying general WAI has been able to support backends for everyhting from
    standalone servers to old school CGI and even woks directly with Webkit to produce faux desktop
    applications. The performance side will introduce us to a number of the cool features of Haskell. </p>

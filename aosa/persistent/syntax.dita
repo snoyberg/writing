@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
 <concept id="persistent-syntax">
- <title>Syntax</title>
- <conbody>
-  <p>So what exactly does an entity declaration look like? It's actually a very terse,
+ <title id="x-1">Syntax</title>
+ <conbody id="x-2">
+  <p id="x-3">So what exactly does an entity declaration look like? It's actually a very terse,
    whitespace-sensitive format.</p>
-  <codeblock>Person
+  <codeblock id="x-4">Person
     name Text
     birthday Day
     picture PNG Maybe</codeblock>
-  <p>We have a line for the entity name, and then one indented line for each field. The syntax is
+  <p id="x-5">We have a line for the entity name, and then one indented line for each field. The syntax is
    simple: a name for the field (begins with a lowercase), and the type of the field (begins with an
    uppercase). After that, you can pass in as many extra attributes as you want. The most common of
-   these is <codeph>Maybe</codeph>, which indicates that a field is optional (in SQL terms,
+   these is <codeph id="x-6">Maybe</codeph>, which indicates that a field is optional (in SQL terms,
    nullable).</p>
-  <p>Another common attribute is sql=, which assigns a specific name to be used in SQL databases.
+  <p id="x-7">Another common attribute is sql=, which assigns a specific name to be used in SQL databases.
    For example:</p>
-  <codeblock>Person sql=people
+  <codeblock id="x-8">Person sql=people
     name Text sql=full_name
     birthday Day sql=birth_date
     picture PNG Maybe sql=profile_image</codeblock>
-  <p>This makes it simple to interact with existing databases. The final feature is defining
+  <p id="x-9">This makes it simple to interact with existing databases. The final feature is defining
    uniqueness constraints, such as requiring a unique name for each person. This provides two
    features: for backends that support it, this allows the database to enforce this uniqueness. And
    for everyone, this provides some convenience Haskell functions for accessing that data. The
    declaration is simply an extra indented line, this time starting with a capital letter:</p>
-  <codeblock>Person
+  <codeblock id="x-10">Person
     name Text
     birthday Day
     picture PNG Maybe
     UniquePerson name -- you could also make it unique on multiple columns if you like</codeblock>
-  <note>Why this distinction between uppercase and lowercase? This actually comes straight from
+  <note id="x-11">Why this distinction between uppercase and lowercase? This actually comes straight from
    Haskell. Types and constructors all begin with a capital letter, will records and values begin
    with a lowercase letter. The entity becomes a datatype, and the uniqueness constraint becomes a
    constructor, so they must be upper-cased, while the fields are records.</note>

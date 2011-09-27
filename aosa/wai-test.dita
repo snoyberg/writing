@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="conceptId">
- <title>wai-test</title>
- <conbody>
-  <p>No amount of static typing will obviate the need for testing. We all know that automated
+ <title id="x-1">wai-test</title>
+ <conbody id="x-2">
+  <p id="x-3">No amount of static typing will obviate the need for testing. We all know that automated
    testing is a necessity for any serious applications. wai-test is the recommended approach to
    testing a WAI application. Since requests and responses are simple datatypes, it's very easy to
    mock up a fake request, pass it to an application, and test properties about the response.

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="persistent">
- <title>Persistent</title>
- <conbody>
-  <p>Most web applications will want to store information in a database. Traditionally, this has
+ <title id="x-1">Persistent</title>
+ <conbody id="x-2">
+  <p id="x-3">Most web applications will want to store information in a database. Traditionally, this has
    meant some kind of SQL database. In that regard, Yesod continues a long tradition, with
    PostgreSQL as our most commonly used backend. But as we have been seeing in recent years, SQL
    isn't always the answer to the persistence question. Therefore, Yesod was designed to work well
    with NoSQL databases as well, and ships with a MongoDB backend as a first-class citizen.</p>
-  <p>The result of this design decision is Persistent, Yesod's preferred storage option. There are
+  <p id="x-4">The result of this design decision is Persistent, Yesod's preferred storage option. There are
    really two guiding lights for Persistent: make it as backend agnostic as possible, and let user
    code be completely type-checked.</p>
-  <p>At the same time, we fully recognize that it's impossible to completely shield the user away
+  <p id="x-5">At the same time, we fully recognize that it's impossible to completely shield the user away
    from all details of the backend. Therefore, we provide two types of escape routes:</p>
   <ul id="ul_d97fb29c-e69e-46be-958c-331addbddd2f">
-   <li>Provide backend-specific functionality as necessary. For example, Persistent provides
+   <li id="x-6">Provide backend-specific functionality as necessary. For example, Persistent provides
     features for SQL joins and MongoDB lists and hashes. Proper portability warnings will apply, but
     if you want this functionality, it's there.</li>
-   <li>Easy access to performing raw queries. We don't believe it's possible for any abstraction to
+   <li id="x-7">Easy access to performing raw queries. We don't believe it's possible for any abstraction to
     cover every use case of the underlying library. If you just have to write a 5-table, correllated
     subquery SQL query, go right ahead.</li>
   </ul>
