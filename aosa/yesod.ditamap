@@ -3,6 +3,7 @@
 <map id="x-1">
     <title id="x-2">Yesod Web Framework</title>
     <topicref id="x-3" href="introduction.dita"/>
+    <topicref id="x-13" href="comparison.dita"/>
     <topicref id="x-4" href="wai.dita">
         <topicref id="x-5" href="datatypes.dita"/>
         <topicref id="x-6" href="streaming.dita"/>
@@ -13,9 +14,7 @@
     </topicref>
     <topicref id="x-11" href="templates.dita">
         <topicref id="x-12" href="types.dita"/>
-        <topicref id="x-13" href="syntax.dita"/>
         <topicref id="x-14" href="the-others.dita"/>
-        <topicref id="x-15" href="using-shakespeare.dita"/>
     </topicref>
     <topicref id="x-16" href="persistent.dita">
         <topicref id="x-17" href="persistent/terms.dita"/>

@@ -14,6 +14,7 @@
    collection of <codeph id="x-10">PersistField</codeph>s. And finally, we have a
     <codeph id="x-11">PersistBackend</codeph> that describes how to create, read, update and delete these
    entities.</p>
+  <!--FIXME insert a diagram-->
   <p id="x-12">As a practical example, consider storing a person in a database. We want to store the person's
    name, birthday, and a profile image (a PNG file). So we'll create a new entity
     <codeph id="x-13">Person</codeph> with three fields: a <codeph id="x-14">Text</codeph>, a <codeph id="x-15">Day</codeph> and a
@@ -32,5 +33,6 @@
    Each field gets stored as a different SQL type: <codeph id="x-25">Text</codeph> becomes a
     <codeph id="x-26">VARCHAR</codeph>, <codeph id="x-27">Day</codeph> becomes a <codeph id="x-28">Date</codeph> and
     <codeph id="x-29">PNG</codeph> becomes a <codeph id="x-30">BLOB</codeph> (or <codeph id="x-31">BYTEA</codeph>).</p>
+  <!--FIXME how is this represented in Mongo-->
  </conbody>
 </concept>

@@ -8,12 +8,11 @@
    with all of its initial features borne out of an actual, real life need. After being developed
    mostly single-handedly for about a year, the community efforts kicked in, and Yesod has since
    blossomed into a thriving open-source project.</p>
-  <p id="x-4">I think this approach has produced a very solid project. During the embryonic phase,
-   when Yesod was incredibly ephemeral and ill-defined, it would have been counter-productive to try
-   and get a team to work on it. By the time it stabilized enough to be useful to others, it was the
-   right time to find out the downsides to some of the decisions that had been made. Since then, we
-   have made major changes to the user-facing API to make it more useful, and are quickly
-   solidifying a 1.0 release.</p>
+  <p id="x-4">During the embryonic phase, when Yesod was incredibly ephemeral and ill-defined, it
+   would have been counter-productive to try and get a team to work on it. By the time it stabilized
+   enough to be useful to others, it was the right time to find out the downsides to some of the
+   decisions that had been made. Since then, we have made major changes to the user-facing API to
+   make it more useful, and are quickly solidifying a 1.0 release.</p>
   <p id="x-5">The question you may ask is: why another web framework? I'll start with a redirect to a
    different question: why use Haskell? It seems that most of the world is happy with one of two
    styles of language:</p>
@@ -25,11 +24,12 @@
     compiler to ensure correctness. (The solution to this last point is unit testing. We'll get to
     that later.)</li>
   </ul>
-  <p id="x-8">This is a false dichotomy. There's no reason why statically typed languages need to be so
-   clumsy. Haskell is able to capture a huge amount of the expressivity of Ruby and Python, while
+  <p id="x-8">This is a false dichotomy. There's no reason why statically typed languages need to be
+   so clumsy. Haskell is able to capture a huge amount of the expressivity of Ruby and Python, while
    still keeping a strongly typed language. In fact, Haskell's type system catches many more bugs
    that Java and its ilk. Null pointer exceptions are completely eliminated; immutable data
-   structures simplify reasoning about your code and make parallel programming a breeze.</p>
+   structures simplify reasoning about your code and simplify parallel and concurrent
+   programming.</p>
   <p id="x-9">So why Haskell? It is an efficient, developer-friendly language which provides many
    compile-time checks of program correctness.</p>
   <p id="x-10">The goal of Yesod is to extend Haskell's strengths into web development. We strive to make your

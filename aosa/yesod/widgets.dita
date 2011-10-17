@@ -6,11 +6,11 @@
   <p id="x-3">Let's say you want to include a navbar on a few different pages of your site. This navbar will
    load up the five most recent blog posts (stored in your database), generate some HTML, and then
    need some CSS and Javascript to style and enhance.</p>
-  <p id="x-4">In most web frameworks, this would be a pain. You could add the CSS to the sitewide CSS file,
-   but that's adding extra declarations you don't always need. Likewise with the Javascript, though
-   a bit worse: having that extra Javascript might cause problems on a page it wasn't intended to
-   live on. You'll also be breaking modularity by having to generate the database results from
-   multiple handler functions.</p>
+  <p id="x-4">Without a higher-level interface to tie these components together, this could be a
+   pain. You could add the CSS to the sitewide CSS file, but that's adding extra declarations you
+   don't always need. Likewise with the Javascript, though a bit worse: having that extra Javascript
+   might cause problems on a page it wasn't intended to live on. You'll also be breaking modularity
+   by having to generate the database results from multiple handler functions.</p>
   <p id="x-5">In Yesod, we have a very simple solution: widgets. A widget is a piece of code that ties
    together HTML, CSS and Javascript, allows you to add content to both the &lt;head&gt; and &lt;body&gt;,
    and can run any arbitrary code that belongs in a handler. For example, to implement our

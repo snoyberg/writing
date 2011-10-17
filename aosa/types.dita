@@ -11,15 +11,16 @@
     <li id="x-6">Instead of concatenating URLs directly in our template, we have datatypes- known as
      type-safe URLs- which represent the routes in our application.</li>
    </ol></p>
-  <p id="x-7">Let's see some real-life examples of this stuff. Suppose that a user submits his/her name to
-   your application via a form. This data would be represented with the Text datatype. Now we would
-   like to display this variable, called name, in a page. The type system prevents it from being
-   simply stuck into a Hamlet template, since it's not of type Html. Instead we must convert it
-   somehow. For this, there are two conversion functions:<ol id="ol_sfn_nwy_id">
+  <p id="x-7">Let's see some real-life examples of this stuff. Suppose that a user submits his/her
+   name to your application via a form. This data would be represented with the Text datatype. Now
+   we would like to display this variable, called name, in a page. The type system- at compile time-
+   prevents it from being simply stuck into a Hamlet template, since it's not of type Html. Instead
+   we must convert it somehow. For this, there are two conversion functions:<ol id="ol_sfn_nwy_id">
     <li id="x-8">toHtml will automatically escape any entities. So if a user submits the string
-      <codeph id="x-9">&lt;script src="http://example.com/evil.js"&gt;&lt;/script&gt;</codeph>, the less than signs
-     will automatically be converted to <codeph id="x-10">&amp;lt;</codeph>.</li>
-    <li id="x-11">preEscapedText, on the other hand, will leave the content precisely as it is now.</li>
+      <codeph id="x-9">&lt;script src="http://example.com/evil.js"&gt;&lt;/script&gt;</codeph>, the
+     less than signs will automatically be converted to <codeph id="x-10">&amp;lt;</codeph>.</li>
+    <li id="x-11">preEscapedText, on the other hand, will leave the content precisely as it is
+     now.</li>
    </ol>So in the case of untrusted input from a possibly nefarious user, toHtml would be our
    recommended approach. On the other hand, let's say we have some static HTML stored on our server
    that we'd like to insert into some pages verbatim. In that case, we could load it into a Text

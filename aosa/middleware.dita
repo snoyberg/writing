@@ -8,10 +8,8 @@
    defined as <codeph id="x-5">type Middleware = Application -&gt; Application</codeph>. But the best way to
    understand the purpose of a middleware is to look at some common ones:<ul id="ul_kau_msu_id">
     <li id="x-6">gzip automatically compresses the response from an application.</li>
-    <li id="x-7">jsonp automatically converts JSON responses to JSON-P responses when the client provided a
-     callback parameter.<note id="x-8">For those not familiar, JSON-P is a way of avoiding cross-domain
-      restrictions on Javascript. Instead of returning a JSON object, we return some Javascript that
-      applies a callback function to the JSON.</note></li>
+    <li id="x-7">jsonp automatically converts JSON responses to <xref id="x-8" href="http://en.wikipedia.org/wiki/JSONP" format="html" scope="external">JSON-P</xref>
+     responses when the client provided a callback parameter.</li>
     <li id="x-9">autohead will generate appropriate HEAD responses based on the GET response of an
      application.</li>
     <li id="x-10">debug will print debug information to the console or a log on each request.</li>
