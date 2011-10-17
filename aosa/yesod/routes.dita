@@ -13,11 +13,12 @@
    called HomepageR, and I answer GET requests."<note id="x-7">The trailing "R" on the resource names is
     simply a convention, it doesn't hold any special meaning besides giving a cue to the developer
     that something is a route.</note></p>
-  <p id="x-8">The second line defines the add entry page. This time, we answer both GET and POST requests.
-   You might be wondering why Yesod, as opposed to most frameworks, requires you to explicitly state
-   your request methods. The reason is that Yesod tries to ahere to RESTful principles as much as
-   possible, and a GET and POST request really have very different meanings. Not only do you state
-   these two methods separately, but later you'll define their handler functions separately.</p>
+  <p id="x-8">The second line defines the add entry page. This time, we answer both GET and POST
+   requests. You might be wondering why Yesod, as opposed to most frameworks, requires you to
+   explicitly state your request methods. The reason is that Yesod tries to adhere to RESTful
+   principles as much as possible, and a GET and POST request really have very different meanings.
+   Not only do you state these two methods separately, but later you'll define their handler
+   functions separately.</p>
   <note id="x-9">This is actually an optional feature in Yesod. If you want, you can leave off the list of
    methods and your handler function will deal with all methods.</note>
   <p id="x-10">The third line is a bit more interesting. After the second slash we have

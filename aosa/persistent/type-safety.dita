@@ -6,8 +6,8 @@
   <p id="x-3">Persistent handles all of the data marshaling concerns for you behind the scenes. As a user of
    Persistent, you get to completely ignore the fact that a <codeph id="x-4">Text</codeph> becomes a
     <codeph id="x-5">VARCHAR</codeph>. You're able to simply declare your datatypes and use them.</p>
-  <p id="x-6">And this is where, yet again, Haskell's strengths shine through. Every interaction you have
-   with Persistent is strongly typed. You can't accidently put a number in the date fields: the
+  <p id="x-6">And this is where, yet again, Haskell's strengths shine through. Every interaction you
+   have with Persistent is strongly typed. You can't accidently put a number in the date fields; the
    compiler won't accept it. Entire classes of subtle bugs simply disappear at this point.</p>
   <p id="x-7">Nowhere is this more pronounced than in refactoring. Let's say you've been storing users' ages
    in the database, and you realize that you really wanted to store birthdays instead. You're able
