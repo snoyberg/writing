@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="conceptId">
+ <title>Lessons Learned</title>
+ <conbody>
+  <p>Yesod has been a very rewarding project to work on. It has given me an opportunity to work on a
+   large system with a diverse group of developers. One of the things that has truly shocked me is
+   how different the end product has become versus what I had originally intended. I started off
+   Yesod by creating a list of goals. Very few of the main features we currently tout in Yesod are
+   in that list, and a good portion of that list is no longer something I plan to implement. The
+   first lesson is:</p>
+  <lq>You will have a better idea of the system you need after you start working on it. Do not tie
+   yourself down to your initial ideas.</lq>
+  <p>As this was my first major piece of Haskell code, I've learnt a lot about the language during
+   Yesod's development. I'm sure others can relate to the feeling of "How did I ever write code like
+   this?" Even though that initial code was not of the same caliber as the code we have in Yesod at
+   this point, it was solid enough to kick-start the project. The second lesson is:</p>
+  <lq>Don't be deterred due to supposed lack of mastery of the tools at hand. Write the best code
+   you can, and keep improving it.</lq>
+  <p>One of the most difficult steps in Yesod's development was moving from a single-person team-
+   me- to collaborating with others. It started off simply with merging pull requests on Github, and
+   eventually moved to having a number of core maintainers. I had established some of my own
+   development patterns, which were nowhere explained or documented. As a result, contributors found
+   it difficult to pull my latest unreleased changes and play around with them. This hindered others
+   both from contributing and testing.</p>
+  <p>When Greg Weber came aboard as another lead on Yesod, he put in place a lot of the coding
+   standards that were sorely lacking. To compound the problems, there were some inherent
+   difficulties playing with the Haskell development toolchain, specifically dealing with Yesod's
+   large number of packages. One of the goals of the entire Yesod team has since been to create
+   standard scripts and tools to automate building. Many of these tools are making their way back
+   into the general Haskell community. The final lesson is:</p>
+  <lq>Consider early on how to make your project approachable for others.</lq>
+  <!--FIXME: review this once more-->
+ </conbody>
+</concept>
