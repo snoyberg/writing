@@ -3,13 +3,13 @@
 <concept id="Relations">
  <title id="x-1">Relations</title>
  <conbody id="x-2">
-  <p id="x-3">Persistent is non-relational in nature, meaning it has no requirement for backends to support
-   relations. However, in many use cases, we may want to use relations. And in those cases, you will
-   have full access to them.</p>
-  <p id="x-4">Let's say we want to now store a list of skills with each user. If we were writing a
+  <p id="x-3">Persistent is non-relational in nature, meaning it has no requirement for backends to
+   support relations. However, in many use cases, we may want to use relations. In those cases,
+   developers will have full access to them.</p>
+  <p id="x-4">Assume we want to now store a list of skills with each user. If we were writing a
    MongoDB-specific app, we could go ahead and just store that list as a new field in the original
-   Person entity. But that approach won't work in SQL. In SQL, we call this kind of relationship a
-   one-to-many relationship.</p>
+   Person entity. But that approach would not work in SQL. In SQL, we call this kind of relationship
+   a one-to-many relationship.</p>
   <p id="x-5">The idea is to store a reference to the "one" entity (person) with each "many" entity (skill).
    Then if we want to find all the skills a person has, we simply find all skills that reference
    that person. For this reference, every entity has an ID. And as you might expect by now, these

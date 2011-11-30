@@ -3,16 +3,19 @@
 <concept id="conceptId">
  <title id="x-1">Middleware</title>
  <conbody id="x-2">
-  <p id="x-3">In between handlers and applications, we have middlewares. Technically, a middleware is an
-    <term id="x-4">application transformer</term>: it takes one application, and returns a new one. This is
-   defined as <codeph id="x-5">type Middleware = Application -&gt; Application</codeph>. But the best way to
-   understand the purpose of a middleware is to look at some common ones:<ul id="ul_kau_msu_id">
-    <li id="x-6">gzip automatically compresses the response from an application.</li>
-    <li id="x-7">jsonp automatically converts JSON responses to <xref id="x-8" href="http://en.wikipedia.org/wiki/JSONP" format="html" scope="external">JSON-P</xref>
+  <p id="x-3">In between handlers and applications, we have middlewares. Technically, a middleware
+   is an <term id="x-4">application transformer</term>: it takes one application, and returns a new
+   one. This is defined as <codeph id="x-5">type Middleware = Application -&gt;
+   Application</codeph>. The best way to understand the purpose of a middleware is to look at some
+   common ones:<ul id="ul_kau_msu_id">
+    <li id="x-6"><b>gzip</b> automatically compresses the response from an application.</li>
+    <li id="x-7"><b>jsonp</b> automatically converts JSON responses to <xref id="x-8"
+      href="http://en.wikipedia.org/wiki/JSONP" format="html" scope="external">JSON-P</xref>
      responses when the client provided a callback parameter.</li>
-    <li id="x-9">autohead will generate appropriate HEAD responses based on the GET response of an
-     application.</li>
-    <li id="x-10">debug will print debug information to the console or a log on each request.</li>
+    <li id="x-9"><b>autohead</b> will generate appropriate HEAD responses based on the GET response
+     of an application.</li>
+    <li id="x-10"><b>debug</b> will print debug information to the console or a log on each
+     request.</li>
    </ul></p>
   <p id="x-11">The theme here is to factor out common code from applications and let it be shared easily. Note
    that, based on the definition of a middleware, we can easily stack these things up. The general

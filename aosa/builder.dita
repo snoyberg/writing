@@ -3,22 +3,24 @@
 <concept id="conceptId">
  <title id="x-1">Builder</title>
  <conbody id="x-2">
-  <p id="x-3">The trick in our arsenal is how we produce our response buffers. We have a few competing
-   desires here: On the one hand, we want to minimize system calls for sending data over the socket.
-   To do this we need to store outgoing data in a buffer. However, if we make this buffer too large,
-   we will exhaust our memory and slow down the application's response time. Finally, we want to
-   minimize the number of times data is copied between buffers.</p>
-  <p id="x-4">Haskell's solution to this is the builder. A builder is an instruction for how to fill the
+  <p id="x-3">The trick in our arsenal is how we produce our response buffers. We have a two
+   competing desires here: minimizing system calls, and minimizing buffer copies. On the one hand,
+   we want to minimize system calls for sending data over the socket. To do this we need to store
+   outgoing data in a buffer. However, if we make this buffer too large, we will exhaust our memory
+   and slow down the application's response time. On the other hand, we want to minimize the number
+   of times data is copied between buffers, preferably copying just once from the source to
+   destination buffer.</p>
+  <p id="x-4">Haskell's solution is the builder. A builder is an instruction for how to fill a
    memory buffer, such as place the five bytes "hello" in the next open position. Instead of passing
    a stream of memory buffers to the server, a WAI application passes a stream of these
    instructions. The server takes the stream and uses it to fill up optimally sized memory buffers.
    As each buffer is filled, the server makes a system call to send the data over over the wire and
-   then starts filling up the next buffer.<note id="x-5">The optimal size for a buffer will depend on many
-    factors such as cache size. The underlying blaze-builder library underwent significant
+   then starts filling up the next buffer.<note id="x-5">The optimal size for a buffer will depend
+    on many factors such as cache size. The underlying blaze-builder library underwent significant
     performance testing to determine the best trade-off.</note></p>
-  <p id="x-6">In theory, this kind of optimization could be performed in the application itself. However, by
-   hoisting it into the interface, we are able to simply prepend the response headers to the
-   response body. The result is that, for small to medium sized responses, the entire response can
-   be sent with a single system call and memory being copied only once.</p>
+  <p id="x-6">In theory, this kind of optimization could be performed in the application itself.
+   However, by encoding this approach in the interface itself, we are able to simply prepend the
+   response headers to the response body. The result is that, for small to medium sized responses,
+   the entire response can be sent with a single system call and memory is copied only once.</p>
  </conbody>
 </concept>

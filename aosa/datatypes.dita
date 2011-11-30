@@ -9,10 +9,10 @@
    core concept we want to express is that of an application. An application's most basic expression
    is a function that takes a request and returns a response. In Haskell lingo:
    <codeblock id="x-4">type Application = Request -&gt; Response</codeblock></p>
-  <p id="x-5">But that just begs the question: what do Request and Response look like? A Request has a number
-   of pieces of information, but the most basic are the requested path, query string, request
-   headers, and request body. And a Response has just three components: a status, response headers
-   and response body.</p>
+  <p id="x-5">This just raises the question: what do Request and Response look like? A Request has a
+   number of pieces of information, but the most basic are the requested path, query string, request
+   headers, and request body. And a Response has just three components: a status code, response
+   headers and response body.</p>
   <p id="x-6">How do we represent something like a query string? Haskell keeps a strict separation between
    binary and textual data. The former is represented by ByteString, the latter by Text. Both are
    highly optimized datatypes that provide a high level, safe API. In the case of query string we

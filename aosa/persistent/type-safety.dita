@@ -3,23 +3,24 @@
 <concept id="type-safety">
  <title id="x-1">Type Safety</title>
  <conbody id="x-2">
-  <p id="x-3">Persistent handles all of the data marshaling concerns for you behind the scenes. As a user of
+  <p id="x-3">Persistent handles all of the data marshaling concerns behind the scenes. As a user of
    Persistent, you get to completely ignore the fact that a <codeph id="x-4">Text</codeph> becomes a
-    <codeph id="x-5">VARCHAR</codeph>. You're able to simply declare your datatypes and use them.</p>
-  <p id="x-6">And this is where, yet again, Haskell's strengths shine through. Every interaction you
-   have with Persistent is strongly typed. You can't accidently put a number in the date fields; the
-   compiler won't accept it. Entire classes of subtle bugs simply disappear at this point.</p>
-  <p id="x-7">Nowhere is this more pronounced than in refactoring. Let's say you've been storing users' ages
-   in the database, and you realize that you really wanted to store birthdays instead. You're able
-   to make a single line change to your entities declaration file, hit compile, and automatically
-   find every single line of code that needs to be updated.</p>
-  <p id="x-8">In most dynamically-typed languages, and their web frameworks, the recommended approach to
-   solving this issue is writing unit tests. If you have full test coverage, then running your tests
-   will immediately reveal what code needs to be updated. This is all well and good, but it's
-   definitely a weaker solution than true types:</p>
+    <codeph id="x-5">VARCHAR</codeph>. You are able to simply declare your datatypes and use
+   them.</p>
+  <p id="x-6">Every interaction with Persistent is strongly typed. This prevents you from
+   accidentally putting a number in the date fields; the compiler will not accept it. Entire classes
+   of subtle bugs simply disappear at this point.</p>
+  <p id="x-7">Nowhere is the power of strong typing more pronounced than in refactoring. Let's say
+   you have been storing users' ages in the database, and you realize that you really wanted to
+   store birthdays instead. You are able to make a single line change to your entities declaration
+   file, hit compile, and automatically find every single line of code that needs to be updated.</p>
+  <p id="x-8">In most dynamically-typed languages, and their web frameworks, the recommended
+   approach to solving this issue is writing unit tests. If you have full test coverage, then
+   running your tests will immediately reveal what code needs to be updated. This is all well and
+   good, but it is a weaker solution than true types:</p>
   <ul id="ul_a07db389-836b-4cef-8d56-d788396d30f9">
-   <li id="x-9">It's all predicated on having full test coverage. This takes extra time, and worse, is
-    boilerplate code that the compiler should be able to do for you.</li>
+   <li id="x-9">It is all predicated on having full test coverage. This takes extra time, and worse,
+    is boilerplate code that the compiler should be able to do for you.</li>
    <li id="x-10">You might be a perfect developer who never forgets to write a test, but can you say the same
     for every person who will touch your codebase?</li>
    <li id="x-11">Even 100% test coverage doesn't guarantee that you really have tested every case. All it's

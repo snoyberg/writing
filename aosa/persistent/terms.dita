@@ -9,30 +9,56 @@
    that, we have the <codeph id="x-5">PersistField</codeph> class. Internally, a
     <codeph id="x-6">PersistField</codeph> expresses itself to the database in terms of a
     <codeph id="x-7">PersistValue</codeph>.</p>
-  <p id="x-8">All of this is very nice, but we'll really want to combine different fields together into a
+  <p id="x-8">All of this is very nice, but we will want to combine different fields together into a
    larger picture. For this, we have a <codeph id="x-9">PersistEntity</codeph>, which is basically a
-   collection of <codeph id="x-10">PersistField</codeph>s. And finally, we have a
-    <codeph id="x-11">PersistBackend</codeph> that describes how to create, read, update and delete these
+   collection of <codeph id="x-10">PersistField</codeph>s. And finally, we have a <codeph id="x-11"
+    >PersistBackend</codeph> that describes how to create, read, update and delete these
    entities.</p>
   <!--FIXME insert a diagram-->
-  <p id="x-12">As a practical example, consider storing a person in a database. We want to store the person's
-   name, birthday, and a profile image (a PNG file). So we'll create a new entity
-    <codeph id="x-13">Person</codeph> with three fields: a <codeph id="x-14">Text</codeph>, a <codeph id="x-15">Day</codeph> and a
-    <codeph id="x-16">PNG</codeph>. Each of those get stored in the database using a different
-    <codeph id="x-17">PersistValue</codeph> constructor: <codeph id="x-18">PersistText</codeph>,
-    <codeph id="x-19">PersistDay</codeph> and <codeph id="x-20">PersistByteString</codeph>, respectively.</p>
-  <p id="x-21">There's nothing surprising about those first two mappings, but the last one is interesting.
-   There's no specific constructor for storing PNG content in a database, so instead we use a more
-   generic type (a ByteString, which is just a sequence of bytes). We could use the same mechanism
-   to store other types of arbitrary data.</p>
-  <note id="x-22">The commonly held best practice for storing images is to keep the data on the filesystem and
-   just keep a path to the image in the database. I'm not advocating against that approach here,
-   just using database-stored images as an example.</note>
-  <p id="x-23">How is all this represented in the database? Let's take SQL as an example. The
-    <codeph id="x-24">Person</codeph> entity becomes a table with three columns: name, birthday and picture.
-   Each field gets stored as a different SQL type: <codeph id="x-25">Text</codeph> becomes a
-    <codeph id="x-26">VARCHAR</codeph>, <codeph id="x-27">Day</codeph> becomes a <codeph id="x-28">Date</codeph> and
-    <codeph id="x-29">PNG</codeph> becomes a <codeph id="x-30">BLOB</codeph> (or <codeph id="x-31">BYTEA</codeph>).</p>
-  <!--FIXME how is this represented in Mongo-->
+  <p id="x-12">As a practical example, consider storing a person in a database. We want to store the
+   person's name, birthday, and a profile image (a PNG file). We create a new entity <codeph
+    id="x-13">Person</codeph> with three fields: a <codeph id="x-14">Text</codeph>, a <codeph
+    id="x-15">Day</codeph> and a <codeph id="x-16">PNG</codeph>. Each of those get stored in the
+   database using a different <codeph id="x-17">PersistValue</codeph> constructor: <codeph id="x-18"
+    >PersistText</codeph>, <codeph id="x-19">PersistDay</codeph> and <codeph id="x-20"
+    >PersistByteString</codeph>, respectively.</p>
+  <p id="x-21">There is nothing surprising about the first two mappings, but the last one is
+   interesting. There is no specific constructor for storing PNG content in a database, so instead
+   we use a more generic type (a ByteString, which is just a sequence of bytes). We could use the
+   same mechanism to store other types of arbitrary data.</p>
+  <note id="x-22">The commonly held best practice for storing images is to keep the data on the
+   filesystem and just keep a path to the image in the database. We do not advocate against using
+   that approach, but are rather using database-stored images as an illustrative example.</note>
+  <p id="x-23">How is all this represented in the database? Consider SQL as an example: the <codeph
+    id="x-24">Person</codeph> entity becomes a table with three columns (name, birthday, and
+   picture). Each field is stored as a different SQL type: <codeph id="x-25">Text</codeph> becomes a
+    <codeph id="x-26">VARCHAR</codeph>, <codeph id="x-27">Day</codeph> becomes a <codeph id="x-28"
+    >Date</codeph> and <codeph id="x-29">PNG</codeph> becomes a <codeph id="x-30">BLOB</codeph> (or
+    <codeph id="x-31">BYTEA</codeph>).</p>
+  <p>The story for MongoDB is very similar. <codeph>Person</codeph> becomes its own
+    <term>document</term>, and its three fields each become a MongoDB <term>field</term>. There is
+   no need for data types or creation of a schema in MongoDB.</p>
+  <simpletable id="simpletable_zxa_klv_le">
+   <sthead>
+    <stentry>Persistent</stentry>
+    <stentry>SQL</stentry>
+    <stentry>MongoDB</stentry>
+   </sthead>
+   <strow>
+    <stentry>PersistEntity</stentry>
+    <stentry>Table</stentry>
+    <stentry>Document</stentry>
+   </strow>
+   <strow>
+    <stentry>PersistField</stentry>
+    <stentry>Column</stentry>
+    <stentry>Field</stentry>
+   </strow>
+   <strow>
+    <stentry>PersistValue</stentry>
+    <stentry>Column type </stentry>
+    <stentry><i>N/A</i></stentry>
+   </strow>
+  </simpletable>
  </conbody>
 </concept>

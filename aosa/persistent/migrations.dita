@@ -8,7 +8,7 @@
    of the SQL standard, and thus each engine has a different take on the process. As such, each
    Persistent backend defines its own set of migration rules. In PostgreSQL, which has a rich set of
     <codeph id="x-6">ALTER TABLE</codeph> rules, we use those extensively. Since SQLite lacks much
-   of that functionality, we're reduce to creating temporary tables and copying rows. MongoDB's
+   of that functionality, we are reduced to creating temporary tables and copying rows. MongoDB's
    schema-less approach means no migration support is required.</p>
   <p id="x-4">This feature is purposely limited to prevent any kind of data loss. It will not remove any
    columns automatically; instead, it will give you an error message, telling you the unsafe

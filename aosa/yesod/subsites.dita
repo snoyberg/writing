@@ -8,11 +8,12 @@
    using a <term id="x-4">subsite</term>. All you need to do is add an extra line to your routes. For
    example, to add the static subsite, you would write:</p>
   <codeblock id="x-5">/static StaticR Static getStatic</codeblock>
-  <p id="x-6">The first argument tells where in the site the subsite starts. The static subsite is usually
-   used at /static, but you could use whatever you want. StaticR is the name of the route; this is
-   also entirely up to you, but convention is to use StaticR. Static is the name of the static
-   subsite; this is one you don't have control over. And getStatic if a function that returns the
-   settings for the static site, such as where the static files are located.</p>
+  <p id="x-6">The first argument tells where in the site the subsite starts. The static subsite is
+   usually used at /static, but you could use whatever you want. StaticR is the name of the route;
+   this is also entirely up to you, but convention is to use StaticR. Static is the name of the
+   static subsite; this is one you do not have control over. <codeph>getStatic</codeph> is a
+   function that returns the settings for the static site, such as where the static files are
+   located.</p>
   <p id="x-7">Like all of your handlers, the subsite handlers also have access to the
     <codeph id="x-8">defaultLayout</codeph> function. This means that a well designed subsite will
    automatically use your site skin without any extra intervention on your part.</p>

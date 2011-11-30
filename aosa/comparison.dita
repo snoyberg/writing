@@ -7,16 +7,18 @@
    such as Rails and Django. It generally follows the Model-View-Controller (MVC) paradigm, has a
    templating system that separates view from logic, provides an Object Relational Mapping (ORM)
    system, and has a front controller approach to routing.</p>
-  <p id="x-4">The devil is in the details. Yesod strives to push as much error catching to the compile phase
-   instead of runtime, and to automatically catch both bugs and security flaws through the type
-   system. And while it tries to maintain a user-friendly, high-level API, it uses a number of newer
-   techniques from the functional programming world to achieve high performance, and is not afraid
-   to expose these internals to developers.</p>
-  <p id="x-5">The main architectural challenge in Yesod is balancing these two seemingly conflicting goals.
-   For example, there is nothing revolutionary about Yesod's approach to routing (called <xref id="x-6" href="yesod/routes.dita#routes" format="dita">type-safe URLs</xref>). Historically, implementing
-   such a solution was a tedious, error-prone process. Yesod's innovation is to use Template Haskell
-   (a form of code generation) to automate the boilerplate required to bootstrap the process.
-   Similarly, type-safe HTML has been around for a long while; Yesod tries to keep the developer
-   friendly aspect of common template languages while keeping the power of type safety.</p>
+  <p id="x-4">The devil is in the details. Yesod strives to push as much error catching to the
+   compile phase instead of runtime, and to automatically catch both bugs and security flaws through
+   the type system. While Yesod tries to maintain a user-friendly, high-level API, it uses a number
+   of newer techniques from the functional programming world to achieve high performance, and is not
+   afraid to expose these internals to developers.</p>
+  <p id="x-5">The main architectural challenge in Yesod is balancing these two seemingly conflicting
+   goals. For example, there is nothing revolutionary about Yesod's approach to routing (called
+    <xref id="x-6" href="yesod/routes.dita#routes" format="dita">type-safe URLs</xref>).
+   Historically, implementing such a solution was a tedious, error-prone process. Yesod's innovation
+   is to use Template Haskell (a form of code generation) to automate the boilerplate required to
+   bootstrap the process. Similarly, type-safe HTML has been around for a long while; Yesod tries to
+   keep the developer-friendly aspect of common template languages while keeping the power of type
+   safety.</p>
  </conbody>
 </concept>

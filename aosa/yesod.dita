@@ -3,10 +3,10 @@
 <concept id="yesod">
  <title id="x-1">Yesod</title>
  <conbody id="x-2">
-  <p id="x-3">If we're looking through the typical Model-View-Controller (MVC) paradigm, Persistent
+  <p id="x-3">If we are looking through the typical Model-View-Controller (MVC) paradigm, Persistent
    is the model and Sheakespeare is the view. This would leave Yesod as the controller.</p>
-  <p id="x-4">The most basic feature of Yesod is routing. This features a declarative syntax and type-safe
-   dispatch. Layered on top of this, Yesod provides many other features: streaming content
+  <p id="x-4">The most basic feature of Yesod is routing. It features a declarative syntax and
+   type-safe dispatch. Layered on top of this, Yesod provides many other features: streaming content
    generation, widgets, i18n, static files, forms and authentication. But the core feature added by
    Yesod is really routing.</p>
   <p id="x-5">This layered approach makes it simpler for users to swap different components of the system.

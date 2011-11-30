@@ -11,15 +11,15 @@
   <p id="x-4">The result of this design decision is Persistent, Yesod's preferred storage option. There are
    really two guiding lights for Persistent: make it as backend agnostic as possible, and let user
    code be completely type-checked.</p>
-  <p id="x-5">At the same time, we fully recognize that it's impossible to completely shield the user away
-   from all details of the backend. Therefore, we provide two types of escape routes:</p>
+  <p id="x-5">At the same time, we fully recognize that it is impossible to completely shield the
+   user away from all details of the backend. Therefore, we provide two types of escape routes:</p>
   <ul id="ul_d97fb29c-e69e-46be-958c-331addbddd2f">
    <li id="x-6">Provide backend-specific functionality as necessary. For example, Persistent provides
     features for SQL joins and MongoDB lists and hashes. Proper portability warnings will apply, but
     if you want this functionality, it's there.</li>
-   <li id="x-7">Easy access to performing raw queries. We don't believe it's possible for any abstraction to
-    cover every use case of the underlying library. If you just have to write a 5-table, correllated
-    subquery SQL query, go right ahead.</li>
+   <li id="x-7">Easy access to performing raw queries. We don't believe it's possible for any
+    abstraction to cover every use case of the underlying library. If you just have to write a
+    5-table, correlated subquery in SQL, go right ahead.</li>
   </ul>
  </conbody>
 </concept>

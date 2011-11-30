@@ -17,25 +17,26 @@
    requests. You might be wondering why Yesod, as opposed to most frameworks, requires you to
    explicitly state your request methods. The reason is that Yesod tries to adhere to RESTful
    principles as much as possible, and a GET and POST request really have very different meanings.
-   Not only do you state these two methods separately, but later you'll define their handler
+   Not only do you state these two methods separately, but later you will define their handler
    functions separately.</p>
   <note id="x-9">This is actually an optional feature in Yesod. If you want, you can leave off the list of
    methods and your handler function will deal with all methods.</note>
-  <p id="x-10">The third line is a bit more interesting. After the second slash we have
-    <codeph id="x-11">#EntryId</codeph>. This defines a parameter of type <codeph id="x-12">EntryId</codeph>. In the
-   Persistent section, we already alluded to this feature: Yesod will now automatically marshal the
-   path component into the relevant ID value. Assuming a SQL backend (we'll get to Mongo in a
-   second), if a user requests <codeph id="x-13">/entry/5</codeph>, the handler function will get called with
-   an argument <codeph id="x-14">EntryId 5</codeph>. But if the user requests
-    <codeph id="x-15">/entry/some-blog-post</codeph>, Yesod will return a 404.</p>
-  <p id="x-16">These is obviously possible in most other web frameworks as well. The approach taken by Django,
-   for instance, would use a regular expression for matching the routes, e.g.
-    <codeph id="x-17">r"/entry/(\d+)"</codeph>. But I think the Yesod approach works better, because:</p>
+  <p id="x-10">The third line is a bit more interesting. After the second slash we have <codeph
+    id="x-11">#EntryId</codeph>. This defines a parameter of type <codeph id="x-12"
+   >EntryId</codeph>. In the Persistent section, we already alluded to this feature: Yesod will now
+   automatically marshal the path component into the relevant ID value. Assuming an SQL backend
+   (Mongo is addressed later), if a user requests <codeph id="x-13">/entry/5</codeph>, the handler
+   function will get called with an argument <codeph id="x-14">EntryId 5</codeph>. But if the user
+   requests <codeph id="x-15">/entry/some-blog-post</codeph>, Yesod will return a 404.</p>
+  <p id="x-16">This is obviously possible in most other web frameworks as well. The approach taken
+   by Django, for instance, would use a regular expression for matching the routes, e.g. <codeph
+    id="x-17">r"/entry/(\d+)"</codeph>. The Yesod approach, however, provides some advantages:</p>
   <ul id="ul_b9e08670-a14a-4ad7-833b-20e1e7e38b2d">
-   <li id="x-18">Typing "EntryId" is much more semantic/developer-friendly than some regular expression.</li>
-   <li id="x-19">Regular expressions can't express everything (or at least, can't do so succinctly). We can
-    use <codeph id="x-20">/calendar/#Day</codeph> in Yesod; do you want to type a regex to match dates in your
-    routes?</li>
+   <li id="x-18">Typing "EntryId" is much more semantic/developer-friendly than a regular
+    expression.<!--FIXME review tone of these points--></li>
+   <li id="x-19">Regular expressions cannot express everything (or at least, can't do so
+    succinctly). We can use <codeph id="x-20">/calendar/#Day</codeph> in Yesod; do you want to type
+    a regex to match dates in your routes?</li>
    <li id="x-21">Yesod also automatically marshals the data for us. In our calendar case, our handler function
     would receive a <codeph id="x-22">Day</codeph> value. In the Django equivalent, the function would receive
     a piece of text which it would then have to marshal itself. This is tedious, repetitive and

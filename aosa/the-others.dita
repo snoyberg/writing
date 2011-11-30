@@ -3,26 +3,26 @@
 <concept id="conceptId">
  <title id="x-1">The Other Languages</title>
  <conbody id="x-2">
-  <p id="x-3">In addition to Hamlet, there are three other languages. Julius is used for Javascript. However,
-   it's a simple pass-through language, just allowing for interpolation. In other words, barring
-   accidental use of the interpolation syntax, any piece of Javascript could be dropped into Julius
-   and be valid. (In fact, for testing performance, I once took jQuery and ran it through Julius
-   without a hitch.)</p>
+  <p id="x-3">In addition to Hamlet, there are three other languages. Julius is used for Javascript.
+   However, it's a simple pass-through language, just allowing for interpolation. In other words,
+   barring accidental use of the interpolation syntax, any piece of Javascript could be dropped into
+   Julius and be valid. For example, to test the performance of Julius, jQuery was run through the
+   language without an issue.</p>
   <p id="x-7">The other two languages are alternate CSS syntaxes. Those familiar with the difference between
    Sass and Less will recognize this immediately: Cassius is whitespace delimited, while Lucius uses
    braces. Lucius is in fact a superset of CSS, meaning all valid CSS files are valid Lucius files.
    In addition to allowing text interpolation, there are some helper datatypes provided to model
    unit sizes and colors. Also, type-safe URLs work in these languages, making it convenient for
    specifying background images.</p>
-  <p id="x-4">Besides all the type safety and compile-time checks mentioned above, having specialized
-   languages for CSS and Javascript give us a few other advantages.</p>
+  <p id="x-4">Aside from the type safety and compile-time checks mentioned above, having specialized
+   languages for CSS and Javascript give us a few other advantages:</p>
   <ul id="ul_agn_iwn_zd">
    <li id="x-5">For production, all the CSS and Javascript is compiled into the final executable, increasing
     performance (by avoiding file I/O) and simplifying deployment.</li>
-   <li id="x-6">By being based around the efficient builder construct described earlier, this templates can
-    render very quickly.</li>
-   <li id="x-8">There is built-in support for automatically including these in final webpages. We'll get into
-    this in more detail when describing widgets below.</li>
+   <li id="x-6">By being based around the efficient builder construct described earlier, the
+    templates can be rendered very quickly.</li>
+   <li id="x-8">There is built-in support for automatically including these in final webpages. We
+    will get into this in more detail when describing widgets below.</li>
   </ul>
  </conbody>
 </concept>

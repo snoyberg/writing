@@ -3,12 +3,12 @@
 <concept id="persistent-syntax">
  <title id="x-1">Cross-database Syntax</title>
  <conbody id="x-2">
-  <p id="x-3">Creating a SQL schema that works for multiple SQL engines can be tricky enough. How do you
-   create a schema that will also work with a non-SQL database like MongoDB?</p>
-  <p id="x-4">Persistent allows you to define your entities in a high-level syntax, and will automatically
-   create the SQL schema for you. (In the case of MongoDB, we currently use a schema-less approach.)
-   This also allows Persistent to ensure that your Haskell datatypes match perfectly with the
-   database's definitions.</p>
+  <p id="x-3">Creating an SQL schema that works for multiple SQL engines can be tricky enough. How
+   do you create a schema that will also work with a non-SQL database like MongoDB?</p>
+  <p id="x-4">Persistent allows you to define your entities in a high-level syntax, and will
+   automatically create the SQL schema for you. In the case of MongoDB, we currently use a
+   schema-less approach. This also allows Persistent to ensure that your Haskell datatypes match
+   perfectly with the database's definitions.</p>
   <p id="x-5">Additionally, having all this information gives Persistent the ability to perform more advanced
    functions for you automatically, such as migrations.</p>
  </conbody>

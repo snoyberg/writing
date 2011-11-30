@@ -3,18 +3,19 @@
 <concept id="widgets">
  <title id="x-1">Widgets</title>
  <conbody id="x-2">
-  <p id="x-3">Let's say you want to include a navbar on a few different pages of your site. This navbar will
-   load up the five most recent blog posts (stored in your database), generate some HTML, and then
-   need some CSS and Javascript to style and enhance.</p>
+  <p id="x-3">Assume you want to include a navbar on a few different pages of your site. This navbar
+   will load up the five most recent blog posts (stored in your database), generate some HTML, and
+   then need some CSS and Javascript to style and enhance.</p>
   <p id="x-4">Without a higher-level interface to tie these components together, this could be a
-   pain. You could add the CSS to the sitewide CSS file, but that's adding extra declarations you
-   don't always need. Likewise with the Javascript, though a bit worse: having that extra Javascript
-   might cause problems on a page it wasn't intended to live on. You'll also be breaking modularity
-   by having to generate the database results from multiple handler functions.</p>
-  <p id="x-5">In Yesod, we have a very simple solution: widgets. A widget is a piece of code that ties
-   together HTML, CSS and Javascript, allows you to add content to both the &lt;head&gt; and &lt;body&gt;,
-   and can run any arbitrary code that belongs in a handler. For example, to implement our
-   navbar:</p>
+   pain to implement. You could add the CSS to the sitewide CSS file, but that's adding extra
+   declarations you don't always need. Likewise with the Javascript, though a bit worse: having that
+   extra Javascript might cause problems on a page it was not intended to live on. You will also be
+   breaking modularity by having to generate the database results from multiple handler
+   functions.</p>
+  <p id="x-5">In Yesod, we have a very simple solution: widgets. A widget is a piece of code that
+   ties together HTML, CSS and Javascript, allowing you to add content to both the &lt;head&gt; and
+   &lt;body&gt;, and can run any arbitrary code that belongs in a handler. For example, to implement
+   our navbar:</p>
   <codeblock id="x-6" outputclass="haskell">-- Get last five blog posts. The "lift" says to run this code like we're in the handler.
 entries &lt;- lift $ runDB $ selectList [] [LimitTo 5, Desc EntryPosted]
 toWidget [hamlet|
@@ -24,29 +25,29 @@ toWidget [hamlet|
 |]
 toWidget [lucius| .navbar { color: red } |]
 toWidget [julius|alert("Some special Javascript to play with my navbar");|]</codeblock>
-  <p id="x-7">But there's even more power at work here. When you produce a page in Yesod, the standard
-   approach is to combine a bunch of widgets together into a single widget containing all your page
-   content, and then apply defaultLayout. This function is defined per site, and applies your
-   standard site layout.</p>
-  <p id="x-8">And where does all of that CSS and Javascript go? Well, that's up to you, but there are two
-   out-of-the-box approaches:</p>
+  <p id="x-7">But there is even more power at work here. When you produce a page in Yesod, the
+   standard approach is to combine a number of widgets together into a single widget containing all
+   your page content, and then apply defaultLayout. This function is defined per site, and applies
+   the standard site layout.</p>
+  <p id="x-8">There are two out-of-the-box approaches to handle where the CSS and Javascript
+   goes:</p>
   <ol id="ul_d94f42ac-dd25-4a5f-a166-225af4b03c11">
    <li id="x-9">Concatenate them and place them into &lt;style&gt; and &lt;script&gt; tags, respectively, within
     your HTML.</li>
    <li id="x-10">Place them in external files and refer to them with &lt;link&gt; and &lt;script&gt; tags,
     respectively.</li>
   </ol>
-  <p id="x-11">In addition, your Javascript can be automatically minified. Option 2 is the prefered approach,
-   since it allows a few extra optimizations:</p>
+  <p id="x-11">In addition, your Javascript can be automatically minified. Option 2 is the preferred
+   approach, since it allows a few extra optimizations:</p>
   <ol id="ol_32f7c374-f394-4809-94f5-00480a982d5d">
    <li id="x-12">The files are created with names based on a hash of the contents. This means you can place
     cache values far in the future without worries of users receiving stale content.</li>
    <li id="x-13">Your Javascript can be asynchronously loaded.</li>
   </ol>
-  <p id="x-14">That second point requires a bit of elaboration. Widgets not only contain raw Javascript, they
-   also contain a list of Javascript dependencies. For example, many sites will refer to the jQuery
-   library and then add some Javascript that uses it. Yesod is able to automatically turn all of
-   that into an asynchronous load via yepnope.js.</p>
+  <p id="x-14">The second point requires a bit of elaboration. Widgets not only contain raw
+   Javascript, they also contain a list of Javascript dependencies. For example, many sites will
+   refer to the jQuery library and then add some Javascript that uses it. Yesod is able to
+   automatically turn all of that into an asynchronous load via yepnope.js.</p>
   <p id="x-15">In other words, widgets allow you to create modular, composable code that will result in
    incredibly efficient serving of your static resources.</p>
  </conbody>

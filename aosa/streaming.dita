@@ -8,12 +8,12 @@
    requests or responses. Instead, we use a technique called enumerators, very similar in concept to
    generators in Python. Our application becomes a consumer of a stream of ByteStrings representing
    the incoming request body, and a producer of a separate stream for the response.</p>
-  <p id="x-4">We now need to slightly revise our definition of an application. An application will take a
-   request value, containing headers, query string, etc, and will consume a stream of ByteStrings,
-   producing a Response. So our actual definition of an Application
-   is:<codeblock id="x-5">type Application = Request -&gt; Iteratee ByteString IO Response</codeblock>The IO
-   simply explains what types of side effects an application can perform. In the case of IO, it can
-   perform any kind of interaction with the outside world, an obvious necessity for the vast
+  <p id="x-4">We now need to slightly revise our definition of an application. An application will
+   take a request value, containing headers, query string, etc, and will consume a stream of
+   ByteStrings, producing a Response. So the revised definition of an Application
+   is:<codeblock id="x-5">type Application = Request -&gt; Iteratee ByteString IO Response</codeblock>The
+   IO simply explains what types of side effects an application can perform. In the case of IO, it
+   can perform any kind of interaction with the outside world, an obvious necessity for the vast
    majority of web applications.</p>
  </conbody>
 </concept>
