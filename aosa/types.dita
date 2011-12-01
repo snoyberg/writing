@@ -5,15 +5,14 @@
  <conbody id="x-2">
   <p id="x-3">One of the overarching themes in Yesod is proper use of types to make developers'
    lives easier. In Yesod templates, we have two main examples:<ol id="ol_pnw_rvy_id">
-    <li id="x-4">All content embedded into a Hamlet template must have a type of <codeph id="x-5"
-      >Html</codeph>. As we'll see later, this forces us to properly escape dangerous HTML when
+    <li id="x-4">All content embedded into a Hamlet template must have a type of <codeph id="x-5">Html</codeph>. As we'll see later, this forces us to properly escape dangerous HTML when
      necessary, while avoiding accidental double-escaping as well.</li>
     <li id="x-6">Instead of concatenating URLs directly in our template, we have datatypes- known as
      type-safe URLs- which represent the routes in our application.</li>
    </ol></p>
   <p id="x-7">As a real-life example, suppose that a user submits his/her name to an application via
    a form. This data would be represented with the Text datatype. Now we would like to display this
-   variable, called <b>name</b>, in a page. The type system- at compile time- prevents it from being
+   variable, called <b id="x-21">name</b>, in a page. The type system- at compile time- prevents it from being
    simply stuck into a Hamlet template, since it's not of type Html. Instead we must convert it
    somehow. For this, there are two conversion functions:<ol id="ol_sfn_nwy_id">
     <li id="x-8">toHtml will automatically escape any entities. So if a user submits the string

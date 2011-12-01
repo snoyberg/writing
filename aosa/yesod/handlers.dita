@@ -6,16 +6,13 @@
   <p id="x-3">Once you define your routes, you need to tell Yesod how you want to respond to
    requests. This is where <term id="x-4">handler functions</term> come into play. The setup is
    simple; for each resource (e.g., HomepageR) and request method, create a function named
-   methodResourceR. For our previous example, we would need four functions: <codeph id="x-5"
-    >getHomepageR</codeph>, <codeph id="x-6">getAddEntryR</codeph>, <codeph id="x-7"
-    >postAddEntryR</codeph>, and <codeph id="x-8">getEntryR</codeph>.</p>
+   methodResourceR. For our previous example, we would need four functions: <codeph id="x-5">getHomepageR</codeph>, <codeph id="x-6">getAddEntryR</codeph>, <codeph id="x-7">postAddEntryR</codeph>, and <codeph id="x-8">getEntryR</codeph>.</p>
   <p id="x-9">All of the parameters collected from the route are passed in as arguments to the handler
    function. <codeph id="x-10">getEntryR</codeph> will take a first arugment of type EntryId, while all the
    other functions will take no arguments.</p>
   <p id="x-11">The handler functions live in a <codeph id="x-12">Handler</codeph> monad, which
    provides a great deal of functionality, such as redirecting, accessing sessions, and running
-   database queries. For the last one, a typical way to start of the <codeph id="x-13"
-    >getEntryR</codeph> function would be:</p>
+   database queries. For the last one, a typical way to start of the <codeph id="x-13">getEntryR</codeph> function would be:</p>
   <codeblock id="x-14">getEntryR entryId = do
     entry &lt;- runDB $ get404 entryId</codeblock>
   <p id="x-15">This will run a database action that will get the entry associated with the given ID from the

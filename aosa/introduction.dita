@@ -5,7 +5,7 @@
  <conbody id="x-2">
   <p id="x-3">Yesod is a web framework written in the Haskell programming language. While many
    popular web frameworks exploit the dynamic nature of their host languages, Yesod exploits the static nature of Haskell to produce safer, faster code.</p>
-  <p>Development began about two years ago, and has been going strong ever since. Yesod cut its
+  <p id="x-11">Development began about two years ago, and has been going strong ever since. Yesod cut its
    teeth on real life projects, with all of its initial features borne out of an actual, real life
    need. At first, development was almost entirely a one-man show. After about a year of development, the community efforts kicked
    in, and Yesod has since blossomed into a thriving open-source project.</p>

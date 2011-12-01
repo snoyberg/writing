@@ -30,7 +30,7 @@
    Haskell interpreter. On the flip side, Warp is an incredibly fast server, with protection from
    all kinds of attack vectors, such as slow loris and infinite headers. Warp can be the only web
    server you need, though it is also quite happy to sit behind a reverse HTTP proxy.</p>
-  <p>The PONG benchmark measures the requests per second of various servers for the 4-byte response
+  <p id="x-21">The PONG benchmark measures the requests per second of various servers for the 4-byte response
    body "PONG". In this graph, Yesod is measured as a framework on top of Warp. As can be seen, the
    Haskell servers (Warp, Happstack and Snap) lead the pack.</p>
   <fig id="x-16">
@@ -49,7 +49,7 @@
    using a synchronous API, and GHC automatically switches between different green threads waiting
    for activity.</p>
   <p id="x-20">Under the surface, GHC uses whatever system is provided by the host operating system,
-   such as <i>kqueue</i>, <i>epoll</i> and <i>select</i>. This gives us all the performance of an
+   such as <i id="x-22">kqueue</i>, <i id="x-23">epoll</i> and <i id="x-24">select</i>. This gives us all the performance of an
    event-based IO system, without worrying about cross-platform issues or writing in a
    callback-oriented way.</p>
  </conbody>

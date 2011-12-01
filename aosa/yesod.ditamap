@@ -31,5 +31,5 @@
         <topicref id="x-26" href="yesod/widgets.dita"/>
         <topicref id="x-27" href="yesod/subsites.dita"/>
     </topicref>
-    <topicref href="lessons-learned.dita"/>
+    <topicref id="x-15" href="lessons-learned.dita"/>
 </map>
