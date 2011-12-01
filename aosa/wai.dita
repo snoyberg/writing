@@ -12,6 +12,9 @@
    everything from standalone servers to old school CGI and even works directly with Webkit to
    produce faux desktop applications. The performance side will introduce us to a number of the cool
    features of Haskell.</p>
-  <!--FIXME add a diagram showing how everything fits together-->
+  <fig>
+   <title>Overall structure of a Yesod application</title>
+   <image href="Yesodoverviewdiagram.png" id="image_szu_quw_le"/>
+  </fig>
  </conbody>
 </concept>

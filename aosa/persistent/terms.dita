@@ -14,7 +14,6 @@
    collection of <codeph id="x-10">PersistField</codeph>s. And finally, we have a <codeph id="x-11"
     >PersistBackend</codeph> that describes how to create, read, update and delete these
    entities.</p>
-  <!--FIXME insert a diagram-->
   <p id="x-12">As a practical example, consider storing a person in a database. We want to store the
    person's name, birthday, and a profile image (a PNG file). We create a new entity <codeph
     id="x-13">Person</codeph> with three fields: a <codeph id="x-14">Text</codeph>, a <codeph
